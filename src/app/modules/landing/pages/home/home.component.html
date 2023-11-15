@@ -1,9 +1,9 @@
 <div class="mx-auto px-4 py-4 lg:container sm:px-8">
 	<!-- Header -->
-	<app-products-header></app-products-header>
+	<app-products-header />
 	<!-- end Header -->
 	<!-- Product List -->
-	<app-product-list [products]="products"></app-product-list>
+	<app-product-list [products]="products" />
 	<!-- end Product List -->
 	<!-- Pagination -->
 	<app-pagination
@@ -11,7 +11,6 @@
 		[totalPages]="totalPages"
 		[totalResults]="totalResults"
 		[itemsPerPage]="itemsPerPage"
-		(pageChange)="onPageChange($event)">
-	</app-pagination>
+		(pageChange)="onPageChange($event)" />
 	<!-- end Pagination -->
 </div>

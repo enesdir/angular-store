@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PaginationComponent } from 'src/app/shared/components/pagination/pagination.component';
 
-import { ProductListComponent } from '../../components/products/product-list/product-list.component';
-import { ProductsHeaderComponent } from '../../components/products/products-header/products-header.component';
-import { Product } from '../../models/product';
-import { Products } from '../../models/products';
-import { ProductsService } from '../../services/products.service';
+import { ProductListComponent } from '@/modules/landing/components/products/product-list/product-list.component';
+import { ProductsHeaderComponent } from '@/modules/landing/components/products/products-header/products-header.component';
+import { ProductsService } from '@/modules/landing/services/products.service';
+
+import type { Product } from '@/modules/landing/models/product';
+import type { Products } from '@/modules/landing/models/products';
 
 @Component({
 	selector: 'app-home',

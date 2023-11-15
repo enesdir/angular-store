@@ -1,8 +1,8 @@
 import { Injectable, OnDestroy, signal } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { Menu } from '@/core/constants/menu';
+import { MenuItem, SubMenuItem } from '@/core/models/menu.model';
 import { Subscription } from 'rxjs';
-import { Menu } from 'src/app/core/constants/menu';
-import { MenuItem, SubMenuItem } from 'src/app/core/models/menu.model';
 
 @Injectable({
 	providedIn: 'root',
@@ -17,7 +17,7 @@ export class MenuService implements OnDestroy {
 		/** Set dynamic menu */
 		this._pagesMenu.set(Menu.pages);
 
-		let sub = this.router.events.subscribe((event) => {
+		const sub = this.router.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
 				/** Expand menu base on active route */
 				this._pagesMenu().forEach((menu) => {

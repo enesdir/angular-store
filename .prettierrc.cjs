@@ -32,6 +32,16 @@ module.exports = {
 		'prettier-plugin-jsdoc',
 		'prettier-plugin-tailwindcss',
 	],
-	importOrder: ['^(@angular/(.*)$)|^(angular$)', '<THIRD_PARTY_MODULES>', '', '^types$', '^[./]'],
+	importOrder: [
+		'^(@angular/(.*)$)|^(angular$)',
+		'<THIRD_PARTY_MODULES>',
+		'',
+		'^(@/(.*)$)',
+		'^[./]',
+		'',
+		'<TYPES>',
+		'<TYPES>^[.]',
+		'^@/types/(.*)$',
+	],
 	importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
 };

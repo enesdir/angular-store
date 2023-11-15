@@ -1,7 +1,7 @@
 import { CurrencyPipe, NgStyle } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { Product } from '../../../models/product';
+import type { Product } from '@/modules/landing/models/product';
 
 @Component({
 	selector: '[product-single-card]',
@@ -9,10 +9,8 @@ import { Product } from '../../../models/product';
 	standalone: true,
 	imports: [NgStyle, CurrencyPipe],
 })
-export class ProductSingleCardComponent implements OnInit {
+export class ProductSingleCardComponent {
 	@Input() product: Product = <Product>{};
 
 	constructor() {}
-
-	ngOnInit(): void {}
 }

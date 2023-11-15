@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
-import { MenuService } from '../../services/menu.service';
+import { MenuService } from '@/modules/layout/services/menu.service';
 import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
 import { NavbarMobileComponent } from './navbar-mobile/navbar-mobilecomponent';
 
@@ -12,10 +12,8 @@ import { NavbarMobileComponent } from './navbar-mobile/navbar-mobilecomponent';
 	standalone: true,
 	imports: [AngularSvgIconModule, NavbarMenuComponent, NavbarMobileComponent],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 	constructor(private menuService: MenuService) {}
-
-	ngOnInit(): void {}
 
 	public toggleMobileMenu(): void {
 		this.menuService.showMobileMenu = true;

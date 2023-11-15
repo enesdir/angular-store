@@ -3,8 +3,7 @@
 		<!-- Condition -->
 		<ng-container
 			[ngTemplateOutlet]="item.children ? childMenu : parentMenu"
-			[ngTemplateOutletContext]="{ item: item }">
-		</ng-container>
+			[ngTemplateOutletContext]="{ item: item }" />
 
 		<!-- Parent Menu -->
 		<ng-template #parentMenu let-item="item">
@@ -15,7 +14,7 @@
 				class="mx-3 flex w-full items-center justify-between rounded-md px-2 py-2 text-xs font-semibold text-gray-600 hover:bg-gray-100 hover:text-primary-500 dark:text-night-200 dark:hover:bg-night-500">
 				<div class="flex items-center justify-start">
 					<span class="mr-2 text-gray-400 dark:text-night-200" *ngIf="item.icon">
-						<svg-icon src="{{ item.icon }}" [svgClass]="'h-5 w-5'"> </svg-icon>
+						<svg-icon src="{{ item.icon }}" [svgClass]="'h-5 w-5'" />
 					</span>
 					<span class="ml-1">{{ item.label }}</span>
 				</div>
@@ -29,12 +28,12 @@
 					class="mx-3 flex w-full items-center justify-between rounded-md px-2 py-2 text-xs font-semibold text-gray-600 hover:bg-gray-100 hover:text-primary-500 dark:text-night-200 dark:hover:bg-night-500">
 					<div class="flex items-center justify-start">
 						<span class="mr-2 text-gray-400 dark:text-night-200" *ngIf="item.icon">
-							<svg-icon src="{{ item.icon }}" [svgClass]="'h-5 w-5'"> </svg-icon>
+							<svg-icon src="{{ item.icon }}" [svgClass]="'h-5 w-5'" />
 						</span>
 						<span class="ml-1">{{ item.label }}</span>
 					</div>
 					<span>
-						<svg-icon src="assets/icons/heroicons/solid/chevron-right.svg" [svgClass]="'h-5 w-5'"> </svg-icon>
+						<svg-icon src="assets/icons/heroicons/solid/chevron-right.svg" [svgClass]="'h-5 w-5'" />
 					</span>
 				</button>
 				<!-- Submenu Dropdown -->

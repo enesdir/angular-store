@@ -1,9 +1,9 @@
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
-import { CurrencyPipe, NgFor, NgStyle } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { NgFor } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
-import { Product } from '../../../models/product';
-import { ProductSingleCardComponent } from '../product-single-card/product-single-card.component';
+import { ProductSingleCardComponent } from '@/modules/landing/components/products/product-single-card/product-single-card.component';
+import { Product } from '@/modules/landing/models/product';
 
 @Component({
 	selector: 'app-product-list',
@@ -11,14 +11,13 @@ import { ProductSingleCardComponent } from '../product-single-card/product-singl
 	standalone: true,
 	imports: [NgFor, DragDropModule, ProductSingleCardComponent],
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent {
 	@Input() products: Product[] = <Product[]>[];
 
 	constructor() {}
 	get pagedProducts() {
 		return this.products;
 	}
-	ngOnInit(): void {}
 	onDrop(event: CdkDragDrop<string[]>) {
 		moveItemInArray(this.pagedProducts, event.previousIndex, event.currentIndex);
 	}

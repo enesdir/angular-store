@@ -1,12 +1,12 @@
 <!-- List -->
 <div
-  cdkDropList
-  (cdkDropListDropped)="onDrop($event)"
-  class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
-  <div *ngFor="let product of products">
-    <!-- Single Card -->
-    <div product-single-card [product]="product" cdkDrag></div>
-    <!-- end Single Card -->
-  </div>
+	cdkDropList
+	(cdkDropListDropped)="onDrop($event)"
+	class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+	<div *ngFor="let product of products">
+		<!-- Single Card -->
+		<div product-single-card [product]="product" cdkDrag></div>
+		<!-- end Single Card -->
+	</div>
 </div>
 <!-- end List -->

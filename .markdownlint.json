@@ -1,0 +1,26 @@
+{
+	"line-length": false,
+	"no-trailing-punctuation": true,
+	"no-inline-html": {
+		"allowed_elements": [
+			"a",
+			"p",
+			"code",
+			"dl",
+			"dt",
+			"dd",
+			"sub",
+			"sup",
+			"summary",
+			"details",
+			"detail",
+			"img",
+			"table",
+			"thead",
+			"th",
+			"tbody",
+			"tr",
+			"td"
+		]
+	}
+}

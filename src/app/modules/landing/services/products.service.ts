@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { throwError, Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
 import { catchError, take } from 'rxjs/operators';
+
 import { Products } from '../models/products';
 
 const baseUrl = 'https://dummyjson.com/products';
@@ -19,7 +20,7 @@ export class ProductsService {
 
 		return this.http.get<Products>(productsUrl).pipe(
 			take(1),
-			catchError(err => {
+			catchError((err) => {
 				return throwError(() => err);
 			})
 		);

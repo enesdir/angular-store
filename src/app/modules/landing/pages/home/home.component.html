@@ -1,0 +1,17 @@
+<div class="mx-auto px-4 py-4 sm:px-8 lg:container">
+  <!-- Header -->
+  <app-products-header></app-products-header>
+  <!-- end Header -->
+  <!-- Product List -->
+  <app-product-list [products]="products"></app-product-list>
+  <!-- end Product List -->
+  <!-- Pagination -->
+  <app-pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    [totalResults]="totalResults"
+    [itemsPerPage]="itemsPerPage"
+    (pageChange)="onPageChange($event)">
+  </app-pagination>
+  <!-- end Pagination -->
+</div>

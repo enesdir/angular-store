@@ -2,9 +2,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
 import { AppRoutingModule } from '@/app-routing.module';
 import { AppComponent } from '@/app.component';
-
 import { environment } from './environments/environment';
 
 if (environment.production) {
@@ -17,7 +18,19 @@ if (environment.production) {
 document.addEventListener('DOMContentLoaded', () => {
 	platformBrowserDynamic();
 	bootstrapApplication(AppComponent, {
-		providers: [importProvidersFrom(BrowserModule, HttpClientModule, AppRoutingModule)],
+		providers: [
+			importProvidersFrom(
+				BrowserModule,
+				HttpClientModule,
+				AppRoutingModule,
+				ServiceWorkerModule.register('ngsw-worker.js', {
+					enabled: environment.production,
+					// Register the ServiceWorker as soon as the application is stable
+					// or after 30 seconds (whichever comes first).
+					registrationStrategy: 'registerWhenStable:30000',
+				})
+			),
+		],
 	}).catch((err) => console.error(err));
 });
 

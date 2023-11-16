@@ -4,8 +4,12 @@
 	"theme_color": "#1976d2",
 	"background_color": "#fafafa",
 	"display": "standalone",
+	"orientation": "portrait",
 	"scope": "./",
-	"start_url": "./",
+	"start_url": "/",
+	"lang": "en",
+	"dir": "ltr",
+	"prefer_related_applications": false,
 	"icons": [
 		{
 			"src": "assets/favicons/icon-72x72.png",

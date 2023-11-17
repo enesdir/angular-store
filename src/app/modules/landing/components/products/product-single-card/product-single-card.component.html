@@ -2,7 +2,9 @@
 <div
 	class="mx-auto h-[420px] transform flex-col overflow-hidden rounded-lg bg-white shadow-md hover:shadow-lg dark:bg-slate-800"
 	cdkDrag>
-	<img class="h-48 w-full object-cover object-center" [src]="product.thumbnail" alt="Product Image" />
+	<div class="relative h-48 w-full">
+		<img class="object-cover object-center" ngSrc="{{ product.thumbnail }}" alt="Product Image" priority fill />
+	</div>
 	<div class="items-start p-4">
 		<h2 class="mb-2 text-lg font-medium text-gray-900 dark:text-white">{{ product.title }}</h2>
 		<p class="mb-2 line-clamp-3 text-base text-gray-700 dark:text-gray-300">{{ product.description }}</p>

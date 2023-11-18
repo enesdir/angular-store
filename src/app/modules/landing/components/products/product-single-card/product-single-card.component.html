@@ -1,35 +1,51 @@
 <!-- Card -->
-<div
-	class="mx-auto h-[420px] transform flex-col overflow-hidden rounded-lg bg-white shadow-md hover:shadow-lg dark:bg-slate-800"
+<article
+	class="flex flex-col overflow-hidden rounded-lg border bg-white shadow-md hover:shadow-lg dark:bg-slate-800"
 	cdkDrag>
-	<div class="relative h-48 w-full">
-		<img class="object-cover object-center" ngSrc="{{ product.thumbnail }}" alt="Product Image" priority fill />
+	<!-- Card Image -->
+	<div class="aspect-h-1 aspect-w-1 relative h-96 w-full overflow-hidden bg-gray-200 pb-0 xl:aspect-h-8 xl:aspect-w-7">
+		<img
+			class="h-full w-full object-cover object-center"
+			ngSrc="{{ product.thumbnail }}"
+			alt="Product Image"
+			priority
+			fill />
 	</div>
-	<div class="items-start p-4">
-		<h2 class="mb-2 text-lg font-medium text-gray-900 dark:text-white">{{ product.title }}</h2>
-		<p class="mb-2 line-clamp-3 text-base text-gray-700 dark:text-gray-300">{{ product.description }}</p>
-		<div class="flex items-center">
-			<p class="mr-2 text-lg font-semibold text-gray-900 dark:text-white">
-				{{ product.price | currency }}
+	<!-- end Card Image -->
+	<!-- Card Body -->
+	<div class="flex min-h-[11em] flex-1 flex-col px-4 py-1">
+		<div class="flex-auto shrink-0">
+			<h3 class="line-clamp-2 items-start text-sm font-medium text-gray-900 dark:text-white">
+				{{ product.title }}
+			</h3>
+			<p class="line-clamp-2 shrink-0 space-y-2 text-sm text-gray-500 dark:text-gray-300">
+				{{ product.description }}
 			</p>
-			<p class="text-base font-medium text-gray-500 line-through dark:text-gray-300">
-				{{ product.discountPrice | currency }}
-			</p>
-			<p class="ml-auto text-base font-medium text-green-500">{{ product.discountPercentage }}% off</p>
 		</div>
-		<!-- Buttons -->
-		<div class="mt-6 flex items-center justify-between">
-			<button
-				class="flex-none rounded-md bg-primary-500 px-4 py-2.5 text-xs font-semibold text-white hover:bg-primary-600">
-				Buy Now
-			</button>
-			<button
-				class="flex-none rounded-md bg-gray-100 px-4 py-2.5 text-xs font-semibold text-gray-500 hover:bg-gray-200 dark:bg-night-600 dark:text-night-200 dark:hover:bg-night-500">
-				View Item
-			</button>
+		<div class="flex flex-1 flex-col items-end py-2">
+			<div class="flex w-full flex-1 items-end">
+				<p class="text-base font-semibold text-gray-900 dark:text-white">
+					{{ product.price | currency }}
+				</p>
+				<p class="text-base font-medium text-gray-500 line-through dark:text-gray-300">
+					{{ product.discountPrice | currency }}
+				</p>
+				<p class="ml-auto text-base font-medium text-green-500">{{ product.discountPercentage }}% off</p>
+			</div>
+			<!-- Card Buttons -->
+			<div class="flex w-full flex-col justify-between gap-2 lg:flex-row">
+				<button
+					class="rounded-md bg-gray-100 px-4 py-2.5 text-xs font-semibold text-gray-500 hover:bg-gray-200 dark:bg-night-600 dark:text-night-200 dark:hover:bg-night-500">
+					View Item
+				</button>
+				<button class="rounded-md bg-primary-500 px-4 py-2.5 text-xs font-semibold text-white hover:bg-primary-600">
+					Buy Now
+				</button>
+			</div>
+			<!-- end Card Buttons -->
 		</div>
-		<!-- end Buttons -->
 	</div>
-</div>
+	<!-- end Card Body -->
+</article>
 
 <!-- end Card -->

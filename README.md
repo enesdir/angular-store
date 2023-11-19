@@ -24,8 +24,9 @@ This repository contains a store app for an Angular web application with Tailwin
 
 ## Features
 
-- [x] Landing layout ☀️🌙
+- [x] Landing layout
 - [x] Dark mode toggle ☀️🌙
+- [x] SSR
 - [ ] sign up form
 - [ ] sign in form
 - [ ] dashboard
@@ -33,26 +34,26 @@ This repository contains a store app for an Angular web application with Tailwin
 
 ### Dependencies
 
-| Package            | Description                                                                                                | Link                                            |
-| ------------------ | :--------------------------------------------------------------------------------------------------------- | :---------------------------------------------- |
-| `Angular`          | A platform and framework for building single-page client applications using HTML and TypeScript.           | [Angular][Angular-url]                          |
-| `angular-svg-icon` | Provides a means to inline SVG files to allow for them to be easily styled by CSS and code.                | [angular-svg-icon][angular-svg-icon-url]        |
-| `apexcharts`       | Modern & Interactive Open-source Charts                                                                    | [apexcharts][apexcharts-url]                    |
-| `ng-apexcharts`    | Angular wrapper for ApexCharts to build interactive visualizations in Angular.                             | [ng-apexcharts][ng-apexcharts-url]              |
+| Package                                    | Description                                                                                                |
+| ------------------------------------------ | :--------------------------------------------------------------------------------------------------------- |
+| [Angular][Angular-url]                     | A platform and framework for building single-page client applications using HTML and TypeScript.           |
+| [angular-svg-icon][angular-svg-icon-url]   | Provides a means to inline SVG files to allow for them to be easily styled by CSS and code.                |
+| [apexcharts][apexcharts-url]               | Modern & Interactive Open-source Charts                                                                    |
+| [ng-apexcharts][ng-apexcharts-url]         | Angular wrapper for ApexCharts to build interactive visualizations in Angular.                             |
 
 ### Dev Dependencies
 
-| Package                       | Description                                                                                     | Link                                            |
-| ----------------------------- | :-------------------------------------------------------------------------------------------    | :---------------------------------------------- |
-| `Typescript`                  | TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.                 | [Typescript][TS-url]                            |
-| `Husky`                       | Git hook management                                                                             | [Husky][Husky-url]                              |
-| `Conventional Commit`         | A specification for adding human and machine readable meaning to commit messages.               | [Conventional Commit][Conventional-Commit-url]  |
-| `Commitlint`                  | Lint commit messages                                                                            | [Commitlint][Commitlint-url]                    |
-| `Eslint`                      | A tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.           | [ESLint][ESLint-url]                            |
-| `prettier`                    | An opinionated code formatter                                                                   | [Prettier][Prettier-url]                        |
-| `prettier-plugin-tailwindcss` | A Prettier plugin for Tailwind CSS that automatically sorts classes based on recommended order  | [prettier-plugin-tailwindcss][Prettier-Plugin-TailwindCSS-url]         |
-| `TailwindCSS`                 | A utility-first CSS framework for rapidly building custom user interfaces.                      | [TailwindCSS][Tailwind-url]                     |
-| `tailwind-scrollbar`          | Tailwind plugin for styling scrollbars.                                                         | [tailwind-scrollbar][Tailwind-Scrollbar-url]    |
+| Package                                                         | Description                                                                                     |
+| --------------------------------------------------------------- | :---------------------------------------------------------------------------------------------- |
+| [Typescript][TS-url]                                            | TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.                 |
+| [Husky][Husky-url]                                              | Git hook management                                                                             |
+| [Conventional Commit][Conventional-Commit-url]                  | A specification for adding human and machine readable meaning to commit messages.               |
+| [Commitlint][Commitlint-url]                                    | Lint commit messages                                                                            |
+| [ESLint][ESLint-url]                                            | A tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.           |
+| [Prettier][Prettier-url]                                        | An opinionated code formatter                                                                   |
+| [prettier-plugin-tailwindcss][Prettier-Plugin-TailwindCSS-url]  | A Prettier plugin for Tailwind CSS that automatically sorts classes based on recommended order  |
+| [TailwindCSS][Tailwind-url]                                     | A utility-first CSS framework for rapidly building custom user interfaces.                      |
+| [tailwind-scrollbar][Tailwind-Scrollbar-url]                    | Tailwind plugin for styling scrollbars.                                                         |
 
 ### Icons and Patterns
 

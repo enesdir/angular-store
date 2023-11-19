@@ -9,8 +9,8 @@ const routes: Routes = [
 		component: LayoutComponent,
 		loadChildren: () => import('../landing/landing.module').then((m) => m.LandingModule),
 	},
-	{ path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-	{ path: '**', redirectTo: 'error/404' },
+
+	{ path: '**', redirectTo: '404' },
 ];
 
 @NgModule({

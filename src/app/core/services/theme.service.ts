@@ -1,23 +1,48 @@
-import { Injectable, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
+
+import { BrowserStorageService } from './storage.service';
+
+export type ThemePreference = 'light' | 'dark';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class ThemeService {
-	public default = 'light';
-	public themeChanged = signal(this.theme);
+	private readonly themeKey = 'preferred-theme';
+	private readonly defaultTheme: ThemePreference = 'light';
+	private themeChanged = signal<ThemePreference>(this.theme);
 
-	constructor() {}
+	constructor(
+		@Inject(PLATFORM_ID) private platformId: object,
+		private localStorageService: BrowserStorageService
+	) {}
 
-	public get theme(): string {
-		return localStorage.getItem('theme') ?? this.default;
+	public get theme(): ThemePreference {
+		if (isPlatformBrowser(this.platformId)) {
+			const storedTheme = this.localStorageService.getItem(this.themeKey) as ThemePreference;
+			if (storedTheme && (storedTheme === 'light' || storedTheme === 'dark')) {
+				return storedTheme;
+			}
+			return this.initializeThemeBasedOnSystemPreference();
+		}
+		return this.defaultTheme;
 	}
 
-	public set theme(value: string) {
-		localStorage.setItem('theme', value);
-		this.themeChanged.set(value);
+	public set theme(theme: ThemePreference) {
+		if (isPlatformBrowser(this.platformId)) {
+			this.localStorageService.setItem(this.themeKey, theme);
+			this.themeChanged.set(theme);
+		}
 	}
 
+	private initializeThemeBasedOnSystemPreference(): ThemePreference {
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			return 'dark';
+		} else {
+			return 'light';
+		}
+	}
 	public get isDark(): boolean {
 		return this.theme == 'dark';
 	}

@@ -9,9 +9,8 @@ const routes: Routes = [
 		path: '',
 		component: LandingComponent,
 		children: [
-			{ path: '', redirectTo: 'home', pathMatch: 'full' },
-			{ path: 'home', component: HomeComponent },
-			{ path: '**', redirectTo: 'error/404' },
+			{ path: '', pathMatch: 'full', component: HomeComponent },
+			{ path: '**', redirectTo: '404' },
 		],
 	},
 ];

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { afterNextRender, Component } from '@angular/core';
 import { Event, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 
 import { FooterComponent } from './components/footer/footer.component';
@@ -10,7 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 	standalone: true,
 	imports: [NavbarComponent, RouterOutlet, FooterComponent],
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent {
 	private mainContent: HTMLElement | null = null;
 
 	constructor(private router: Router) {
@@ -21,9 +21,8 @@ export class LayoutComponent implements OnInit {
 				}
 			}
 		});
-	}
-
-	ngOnInit(): void {
-		this.mainContent = document.getElementById('main-content');
+		afterNextRender(() => {
+			this.mainContent = document.getElementById('main-content');
+		});
 	}
 }

@@ -1,49 +1,48 @@
 import { NgFor } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PaginationComponent } from 'src/app/shared/components/pagination/pagination.component';
 
 import { ProductListComponent } from '@/modules/landing/components/products/product-list/product-list.component';
 import { ProductsHeaderComponent } from '@/modules/landing/components/products/products-header/products-header.component';
 import { ProductsService } from '@/modules/landing/services/products.service';
-
-import type { Product } from '@/modules/landing/models/product';
-import type { Products } from '@/modules/landing/models/products';
+import { LoadingComponent } from '@/shared/components/loading/loading.component';
 
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
 	standalone: true,
-	imports: [NgFor, ProductsHeaderComponent, ProductListComponent, PaginationComponent],
+	imports: [NgFor, ProductsHeaderComponent, ProductListComponent, PaginationComponent, LoadingComponent],
 })
 export class HomeComponent implements OnInit {
-	loading: boolean = true;
-	products: Product[] = [];
 	currentPage: number = 1;
-	totalPages: number = 0;
-	totalResults: number = 0;
-	itemsPerPage: number = 10;
+
+	private _productsService = inject(ProductsService);
+	public products = this._productsService.products;
+	public loading = this._productsService.loading;
 
 	constructor(
-		private productsService: ProductsService,
 		private route: ActivatedRoute,
 		private router: Router
 	) {}
 
+	public get totalPages() {
+		return this._productsService.totalPages();
+	}
+	public get totalProducts() {
+		return this._productsService.total();
+	}
+	public get limit() {
+		return this._productsService.limit();
+	}
+	public set limit(value: number) {
+		this._productsService.updateLimit(Number(value));
+	}
 	ngOnInit() {
 		// Fetch products when the component initializes
 		this.route.queryParams.subscribe((params: Params) => {
 			this.currentPage = +params['page'] || 1; // Get pagination data from URL
-			this.getProducts();
-		});
-	}
-
-	getProducts() {
-		this.productsService.getProducts(this.currentPage, this.itemsPerPage).subscribe((data: Products) => {
-			this.products = data.products;
-			this.totalResults = data.total;
-			this.totalPages = Math.ceil(this.totalResults / this.itemsPerPage);
-			this.loading = false; // Set loading to false when products are fetched
+			this._productsService.updateSkip((this.currentPage - 1) * this.limit);
 		});
 	}
 
@@ -52,6 +51,6 @@ export class HomeComponent implements OnInit {
 		this.router.navigate(['/'], {
 			queryParams: { page: this.currentPage },
 		});
-		this.getProducts();
+		this._productsService.updateSkip((this.currentPage - 1) * this.limit);
 	}
 }

@@ -1,8 +1,8 @@
 import type { Product } from './product';
 
-export type Products = {
+export interface Products {
 	limit: number;
 	skip: number;
 	total: number;
 	products: Product[];
-};
+}

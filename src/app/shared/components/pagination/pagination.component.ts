@@ -10,8 +10,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class PaginationComponent {
 	@Input() currentPage: number = 1;
 	@Input() totalPages: number = 0;
-	@Input() totalResults: number = 0; // Assume this is provided by the parent component
-	@Input() itemsPerPage: number = 10; // Assuming 10 results per page
+	@Input() totalItems: number = 0;
+	@Input() itemsPerPage: number = 10;
 	@Output() pageChange = new EventEmitter<number>();
 
 	get pages(): number[] {
@@ -40,6 +40,6 @@ export class PaginationComponent {
 
 	getRangeEnd(): number {
 		const end = this.currentPage * this.itemsPerPage; // Calculate the end value of the range
-		return Math.min(end, this.totalResults);
+		return Math.min(end, this.totalItems);
 	}
 }

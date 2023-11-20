@@ -3,14 +3,24 @@
 	<app-products-header />
 	<!-- end Header -->
 	<!-- Product List -->
-	<app-product-list [products]="products" />
-	<!-- end Product List -->
-	<!-- Pagination -->
-	<app-pagination
-		[currentPage]="currentPage"
-		[totalPages]="totalPages"
-		[totalResults]="totalResults"
-		[itemsPerPage]="itemsPerPage"
-		(pageChange)="onPageChange($event)" />
+	@defer {
+		<app-product-list [products]="products()" />
+		<!-- end Product List -->
+		<!-- Pagination -->
+	} @loading {
+		<app-loading />
+	} @error {
+		<p>An loading error occured</p>
+	}
+	@defer (on viewport) {
+		<app-pagination
+			[currentPage]="currentPage"
+			[totalPages]="totalPages"
+			[totalItems]="totalProducts"
+			[itemsPerPage]="limit"
+			(pageChange)="onPageChange($event)" />
+	} @placeholder {
+		<p>Pagination</p>
+	}
 	<!-- end Pagination -->
 </div>

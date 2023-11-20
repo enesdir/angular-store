@@ -24,11 +24,11 @@
 		</div>
 		<div class="flex flex-1 flex-col items-end py-2">
 			<div class="flex w-full flex-1 items-end">
-				<p class="text-base font-semibold text-gray-900 dark:text-white">
-					{{ product.price | currency }}
+				<p class="pr-2 text-base font-semibold text-gray-900 dark:text-white">
+					{{ product.discountPrice | currency }}
 				</p>
 				<p class="text-base font-medium text-gray-500 line-through dark:text-gray-300">
-					{{ product.discountPrice | currency }}
+					{{ product.price | currency }}
 				</p>
 				<p class="ml-auto text-base font-medium text-green-500">{{ product.discountPercentage }}% off</p>
 			</div>

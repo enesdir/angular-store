@@ -1,0 +1,25 @@
+<div class="mx-auto px-4 py-4 lg:container sm:px-8">
+	<!-- Header -->
+	<app-products-header />
+	<app-search-bar [subredditFormControl]="searchFormControl" />
+	<!-- end Header -->
+	<!-- Product List -->
+	@if (loading()) {
+		<app-loading />
+	} @else {
+		<app-product-list [products]="products()" />
+	}
+	<!-- end Product List -->
+	<!-- Pagination -->
+	@defer (on viewport) {
+		<app-pagination
+			[currentPage]="currentPage"
+			[totalPages]="totalPages"
+			[totalItems]="totalProducts"
+			[itemsPerPage]="limit"
+			(pageChange)="onPageChange($event)" />
+	} @placeholder {
+		<p>Pagination</p>
+	}
+	<!-- end Pagination -->
+</div>

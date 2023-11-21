@@ -12,7 +12,7 @@ import { Product } from '@/modules/landing/models/product';
 	imports: [NgFor, DragDropModule, ProductSingleCardComponent],
 })
 export class ProductListComponent {
-	@Input() products: Product[] = <Product[]>[];
+	@Input({ required: true }) products!: Product[];
 
 	constructor() {}
 	get pagedProducts() {

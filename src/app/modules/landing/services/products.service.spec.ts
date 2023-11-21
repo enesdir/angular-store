@@ -27,9 +27,9 @@ describe('ProductsService', () => {
 
 	it('should correctly initialize signals', () => {
 		expect(service.products()).toEqual([]);
-		expect(service.search()).toBe('');
+		expect(service.searchFormControl.value).toBe('');
 		expect(service.skip()).toBe(0);
-		expect(service.limit()).toBe(10);
+		expect(service.productsPerPage()).toBe(10);
 		// Add similar assertions for other signals
 	});
 });

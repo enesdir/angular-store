@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
 		return this._productsService.total();
 	}
 	public get limit() {
-		return this._productsService.limit();
+		return this._productsService.productsPerPage();
 	}
 	public set limit(value: number) {
 		this._productsService.updateLimit(Number(value));

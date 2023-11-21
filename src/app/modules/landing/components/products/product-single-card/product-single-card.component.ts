@@ -10,7 +10,7 @@ import type { Product } from '@/modules/landing/models/product';
 	imports: [NgStyle, CurrencyPipe, NgOptimizedImage],
 })
 export class ProductSingleCardComponent {
-	@Input() product: Product = <Product>{};
+	@Input({ required: true }) product!: Product;
 
 	constructor() {}
 }

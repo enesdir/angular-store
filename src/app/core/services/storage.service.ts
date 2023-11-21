@@ -1,18 +1,18 @@
-import { isPlatformServer } from '@angular/common';
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { inject, Injectable, InjectionToken, PLATFORM_ID } from '@angular/core';
 
-export interface Storage {
-	getItem(key: string): string | null;
-	setItem(key: string, value: string): void;
-	removeItem(key: string): void;
-}
+export const LOCAL_STORAGE = new InjectionToken<Storage>('window local storage object', {
+	providedIn: 'root',
+	factory: () => {
+		return inject(PLATFORM_ID) === 'browser' ? window.localStorage : ({} as Storage);
+	},
+});
 
 /** Store an object in local storage - handles the parsing and stringification of objects for storage. */
 @Injectable({
 	providedIn: 'root',
 })
-export class BrowserStorageService implements Storage {
-	constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+export class BrowserStorageService {
+	storage = inject(LOCAL_STORAGE);
 	/**
 	 * Remove a single key
 	 *
@@ -21,12 +21,10 @@ export class BrowserStorageService implements Storage {
 	 * @returns
 	 */
 	removeItem(key: string): void {
-		if (!isPlatformServer(this.platformId)) {
-			try {
-				localStorage.removeItem(key);
-			} catch (e) {
-				console.error(e);
-			}
+		try {
+			this.storage.removeItem(key);
+		} catch (e) {
+			console.error(e);
 		}
 	}
 	/**
@@ -35,12 +33,10 @@ export class BrowserStorageService implements Storage {
 	 * @param {string} storageKey - Key we're storing under.
 	 */
 	getItem(key: string): string | null {
-		if (!isPlatformServer(this.platformId)) {
-			try {
-				return localStorage.getItem(key) ?? null;
-			} catch (e) {
-				console.error(e);
-			}
+		try {
+			return this.storage.getItem(key) ?? null;
+		} catch (e) {
+			console.error(e);
 		}
 		return null; // Return a default value if on server-side rendering
 	}
@@ -52,12 +48,10 @@ export class BrowserStorageService implements Storage {
 	 * @returns
 	 */
 	setItem(key: string, value: string): void {
-		if (!isPlatformServer(this.platformId)) {
-			try {
-				localStorage.setItem(key, value);
-			} catch (e) {
-				console.error(e);
-			}
+		try {
+			this.storage.setItem(key, value);
+		} catch (e) {
+			console.error(e);
 		}
 	}
 }

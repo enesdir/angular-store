@@ -3,10 +3,12 @@
 	class="mx-auto grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
 	cdkDropList
 	(cdkDropListDropped)="onDrop($event)">
-	@for (product of products; track $index) {
+	@for (product of products; track product) {
 		<!-- Single Card -->
 		<app-product-single-card [product]="product" cdkDrag />
 		<!-- end Single Card -->
+	} @empty {
+		<p data-testid="no-products">Can't find any products 🤷</p>
 	}
 </div>
 <!-- end List -->

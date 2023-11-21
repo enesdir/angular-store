@@ -3,15 +3,13 @@
 	<app-products-header />
 	<!-- end Header -->
 	<!-- Product List -->
-	@defer {
-		<app-product-list [products]="products()" />
-		<!-- end Product List -->
-		<!-- Pagination -->
-	} @loading {
+	@if (loading()) {
 		<app-loading />
-	} @error {
-		<p>An loading error occured</p>
+	} @else {
+		<app-product-list [products]="products()" />
 	}
+	<!-- end Product List -->
+	<!-- Pagination -->
 	@defer (on viewport) {
 		<app-pagination
 			[currentPage]="currentPage"

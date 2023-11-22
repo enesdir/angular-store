@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: '/dashboard/',
+Disallow: /dashboard/,
 
 # Sitemap
 Sitemap: https://angular-store-enesesen.com/sitemap.xml

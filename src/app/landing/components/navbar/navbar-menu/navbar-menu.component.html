@@ -10,8 +10,8 @@
 		<span>{{ menu.group }}</span>
 	</button>
 	<!-- Dropdown  -->
-	<div
+	<app-navbar-submenu
 		class="dropdown-content absolute top-[100%] min-w-[200px] origin-top-left"
 		navbar-submenu
-		[submenu]="menu.items"></div>
+		[submenu]="menu.items" />
 </div>

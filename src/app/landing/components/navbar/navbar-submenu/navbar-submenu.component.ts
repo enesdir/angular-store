@@ -17,7 +17,7 @@ import { heroChevronRightSolid } from '@ng-icons/heroicons/solid';
 import { SubMenuItem } from '@/core/models/menu.model';
 
 @Component({
-	selector: 'div[navbar-submenu]',
+	selector: 'app-navbar-submenu',
 	templateUrl: './navbar-submenu.component.html',
 	standalone: true,
 	imports: [NgFor, NgTemplateOutlet, RouterLinkActive, RouterLink, NgIf, NgIconComponent],

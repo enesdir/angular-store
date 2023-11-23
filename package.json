@@ -4,6 +4,10 @@
 	"displayName": "Angular Store",
 	"description": "Angular & Tailwind CSS Starter Kit, Free and Open Source",
 	"private": true,
+	"engines": {
+		"node": ">=18.x.x",
+		"npm": ">=10"
+	},
 	"scripts": {
 		"build": "ng build",
 		"lint": "ng lint",
@@ -12,14 +16,10 @@
 		"prettier": "prettier --config ./.prettierrc.cjs --write \"src/{app,environments}/**/*{.ts,.html,.scss,.json}\"",
 		"prettier:staged": "pretty-quick --staged",
 		"prettier:verify": "prettier --config ./.prettierrc.cjs --check \"src/{app,environments}/**/*{.ts,.html,.scss,.json}\"",
+		"serve:ssr:angular-store": "node dist/angular-store/server/server.mjs",
 		"start": "ng serve ",
 		"test": "ng test",
 		"watch": "ng build --watch --configuration development"
-	},
-	"config": {
-		"commitizen": {
-			"path": "./node_modules/cz-conventional-changelog"
-		}
 	},
 	"dependencies": {
 		"@angular/animations": "^17.0.4",
@@ -43,6 +43,7 @@
 	},
 	"devDependencies": {
 		"@angular-devkit/build-angular": "^17.0.3",
+		"@angular-eslint/builder": "17.1.0",
 		"@angular-eslint/eslint-plugin": "17.1.0",
 		"@angular-eslint/eslint-plugin-template": "17.1.0",
 		"@angular-eslint/schematics": "17.1.0",

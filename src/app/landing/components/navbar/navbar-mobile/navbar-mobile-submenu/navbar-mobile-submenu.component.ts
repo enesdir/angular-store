@@ -19,11 +19,11 @@ export class NavbarMobileSubmenuComponent {
 
 	constructor(private menuService: MenuService) {}
 
-	public toggleMenu(menu: any) {
+	public toggleMenu(menu: SubMenuItem) {
 		this.menuService.toggleSubMenu(menu);
 	}
 
-	private collapse(items: Array<any>) {
+	private collapse(items: Array<SubMenuItem>) {
 		items.forEach((item) => {
 			item.expanded = false;
 			if (item.children) this.collapse(item.children);

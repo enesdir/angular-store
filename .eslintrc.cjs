@@ -6,20 +6,11 @@
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
 	root: true,
-	ignorePatterns: ['node_modules/**/*'],
-	plugins: ['decorator-position', '@typescript-eslint', 'unused-imports'],
-	parser: '@typescript-eslint/parser',
-	parserOptions: {
-		ecmaVersion: 2020,
-		sourceType: 'module',
-	},
+	ignorePatterns: ['projects/**/*'],
+	plugins: ['unused-imports'],
 	overrides: [
 		{
 			files: ['*.ts'],
-			parserOptions: {
-				project: ['tsconfig.json'],
-				createDefaultProgram: true,
-			},
 			extends: [
 				'eslint:recommended',
 				'plugin:@typescript-eslint/recommended',
@@ -28,21 +19,10 @@ module.exports = {
 				'prettier',
 			],
 			rules: {
-				'@angular-eslint/directive-selector': [
-					'error',
-					{
-						type: 'attribute',
-						prefix: 'app',
-						style: 'camelCase',
-					},
-				],
+				'@angular-eslint/directive-selector': ['error', { type: 'attribute', prefix: 'app', style: 'camelCase' }],
 				'@angular-eslint/component-selector': [
 					'error',
-					{
-						type: 'element',
-						prefix: ['app', 'dash'],
-						style: 'kebab-case',
-					},
+					{ type: 'element', prefix: ['app', 'dash'], style: 'kebab-case' },
 				],
 				//#region  //*=========== Unused Import ===========
 				'unused-imports/no-unused-imports': 'warn',
@@ -65,7 +45,9 @@ module.exports = {
 				'plugin:@angular-eslint/template/accessibility',
 				'prettier',
 			],
-			rules: { '@angular-eslint/template/prefer-self-closing-tags': 'error' },
+			rules: {
+				'@angular-eslint/template/prefer-self-closing-tags': 'error',
+			},
 		},
 	],
 };

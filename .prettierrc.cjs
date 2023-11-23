@@ -32,6 +32,14 @@ module.exports = {
 		'prettier-plugin-jsdoc',
 		'prettier-plugin-tailwindcss',
 	],
+	overrides: [
+		{
+			files: '*.html',
+			options: {
+				parser: 'angular',
+			},
+		},
+	],
 	importOrder: [
 		'^(@angular/(.*)$)|^(angular$)',
 		'<THIRD_PARTY_MODULES>',

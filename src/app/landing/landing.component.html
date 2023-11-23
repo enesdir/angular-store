@@ -1,15 +1,15 @@
-<div class="flex h-screen w-full overflow-hidden">
-	<div class="flex grow flex-col content-start overflow-hidden bg-gray-100 dark:bg-night-800">
-		<!-- Header -->
-		<app-navbar />
-		<!-- main content -->
-		<div
-			id="main-content"
-			class="scrollbar-thumb-rounded scrollbar-track-rounded grow overflow-auto scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-white dark:scrollbar-track-night-800 dark:scrollbar-thumb-night-700">
-			<router-outlet />
-		</div>
+<div class="h-full bg-gray-100">
+	<div class="flex min-h-full w-full overflow-hidden">
+		<div class="flex grow flex-col content-start overflow-hidden bg-gray-100 dark:bg-gray-900">
+			<!-- Header -->
+			<app-navbar />
+			<!-- main content -->
+			<main id="main-content">
+				<router-outlet />
+			</main>
 
-		<!-- footer -->
-		<app-footer />
+			<!-- footer -->
+			<app-footer />
+		</div>
 	</div>
 </div>

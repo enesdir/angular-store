@@ -1,6 +1,7 @@
+import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { heroBars3 } from '@ng-icons/heroicons/outline';
+import { heroBars3, heroBell, heroXMark } from '@ng-icons/heroicons/outline';
 
 import { MenuService } from '@/core/services/menu.service';
 import { landingMenu } from '@/landing/constants/landingMenu';
@@ -13,15 +14,11 @@ import { NavbarMobileComponent } from './navbar-mobile/navbar-mobile.component';
 	templateUrl: './navbar.component.html',
 
 	standalone: true,
-	imports: [NgIconComponent, NavbarMenuComponent, NavbarMobileComponent, LogoComponent],
-	viewProviders: [provideIcons({ heroBars3 })],
+	imports: [NgClass, NgIconComponent, NavbarMenuComponent, NavbarMobileComponent, LogoComponent],
+	viewProviders: [provideIcons({ heroBars3, heroXMark, heroBell })],
 })
 export class NavbarComponent {
-	constructor(private menuService: MenuService) {
+	constructor(public menuService: MenuService) {
 		this.menuService.setMenuData(landingMenu);
-	}
-
-	public toggleMobileMenu(): void {
-		this.menuService.showMobileMenu = true;
 	}
 }

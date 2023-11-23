@@ -3,10 +3,10 @@
 	<app-products-header />
 	<!-- end Header -->
 	<!-- Product List -->
-	@if (loading()) {
+	@if (loading) {
 		<app-loading />
 	} @else {
-		<app-product-list [products]="products()" />
+		<app-product-list [products]="products" />
 	}
 	<!-- end Product List -->
 	<!-- Pagination -->

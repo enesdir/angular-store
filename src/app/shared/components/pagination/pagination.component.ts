@@ -1,11 +1,15 @@
 import { NgClass, NgFor } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { heroChevronRightSolid } from '@ng-icons/heroicons/solid';
 
 @Component({
 	selector: 'app-pagination',
 	templateUrl: './pagination.component.html',
 	standalone: true,
-	imports: [NgClass, NgFor],
+	imports: [NgClass, NgFor, NgIconComponent],
+
+	viewProviders: [provideIcons({ heroChevronRightSolid })],
 })
 export class PaginationComponent {
 	@Input() currentPage: number = 1;

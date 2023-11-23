@@ -60,6 +60,11 @@ export class MenuService implements OnDestroy {
 	}
 
 	// Toggle sidebar visibility
+	public toggleMobileMenu(): void {
+		this._showMobileMenu = !this._showMobileMenu;
+	}
+
+	// Toggle sidebar visibility
 	public toggleSidebar(): void {
 		this._showSidebar = !this._showSidebar;
 	}

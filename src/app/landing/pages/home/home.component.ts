@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PaginationComponent } from 'src/app/shared/components/pagination/pagination.component';
 
@@ -17,32 +17,35 @@ import { LoadingComponent } from '@/shared/components/loading/loading.component'
 export default class HomeComponent implements OnInit {
 	currentPage: number = 1;
 
-	private _productsService = inject(ProductsService);
-	public products = this._productsService.products;
-	public loading = this._productsService.loading;
-
 	constructor(
 		private route: ActivatedRoute,
-		private router: Router
+		private router: Router,
+		private productsService: ProductsService
 	) {}
-
+	public get loading() {
+		return this.productsService.loading();
+	}
+	public get products() {
+		return this.productsService.products();
+	}
 	public get totalPages() {
-		return this._productsService.totalPages();
+		return this.productsService.totalPages();
 	}
 	public get totalProducts() {
-		return this._productsService.total();
+		return this.productsService.total();
 	}
 	public get limit() {
-		return this._productsService.productsPerPage();
+		return this.productsService.productsPerPage();
 	}
 	public set limit(value: number) {
-		this._productsService.updateLimit(Number(value));
+		this.productsService.updateLimit(Number(value));
 	}
+
 	ngOnInit() {
 		// Fetch products when the component initializes
 		this.route.queryParams.subscribe((params: Params) => {
 			this.currentPage = +params['page'] || 1; // Get pagination data from URL
-			this._productsService.updateSkip((this.currentPage - 1) * this.limit);
+			this.productsService.updateSkip((this.currentPage - 1) * this.limit);
 		});
 	}
 
@@ -51,6 +54,6 @@ export default class HomeComponent implements OnInit {
 		this.router.navigate(['/'], {
 			queryParams: { page: this.currentPage },
 		});
-		this._productsService.updateSkip((this.currentPage - 1) * this.limit);
+		this.productsService.updateSkip((this.currentPage - 1) * this.limit);
 	}
 }

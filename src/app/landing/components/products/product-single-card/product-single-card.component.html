@@ -1,15 +1,12 @@
 <!-- Card -->
 <article
-	class="flex flex-col overflow-hidden rounded-lg border bg-white shadow-md hover:shadow-lg dark:bg-slate-800"
+	class="flex flex-col overflow-hidden rounded-xl border bg-white shadow-md hover:shadow-lg dark:border-gray-800 dark:bg-gray-800"
 	cdkDrag>
 	<!-- Card Image -->
-	<div class="aspect-h-1 aspect-w-1 relative h-96 w-full overflow-hidden bg-gray-200 pb-0 xl:aspect-h-8 xl:aspect-w-7">
-		<img
-			class="h-full w-full object-cover object-center"
-			ngSrc="{{ product.thumbnail }}"
-			alt="Product Image"
-			loading="eager"
-			fill />
+	<div
+		class="aspect-h-1 aspect-w-1 h-80 w-full overflow-hidden bg-gray-200 pb-0 xl:aspect-h-8 xl:aspect-w-7"
+		style="position: relative">
+		<img class="h-full w-full object-cover object-center" ngSrc="{{ product.thumbnail }}" alt="Product Image" fill />
 	</div>
 	<!-- end Card Image -->
 	<!-- Card Body -->

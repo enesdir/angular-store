@@ -1,0 +1,21 @@
+<div class="sticky top-[84px] z-10 my-4 bg-gray-100 dark:bg-night-800">
+	<div
+		class="grid h-[36px] grid-cols-[16px,4fr,2fr,4fr,minmax(120px,1fr)] gap-4 border-b border-gray-100 px-4 text-sm text-gray-500 dark:border-white/5 dark:text-night-400">
+		<div class="flex items-center">#</div>
+		<div class="flex items-center">
+			<span class="">Title</span>
+		</div>
+		<div class="hidden items-center justify-self-start sm:flex">
+			<span class="">Album</span>
+		</div>
+		<div class="flex items-center justify-self-end">
+			<div class="mr-8">
+				<!-- <inline-svg src="icons/clock-hour-3.svg" class="stroke-1.5 h-4 w-4" /> -->
+			</div>
+		</div>
+	</div>
+	<!-- List  -->
+	<ng-template ngFor let-podcast let-i="index" [ngForOf]="podcastList">
+		<dash-podcast-list-item [podcast]="podcast" [index]="i" />
+	</ng-template>
+</div>

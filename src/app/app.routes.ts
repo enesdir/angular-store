@@ -30,6 +30,16 @@ export const routes: Routes = [
 			{ path: '**', redirectTo: 'sign-in', pathMatch: 'full' },
 		],
 	},
+	{
+		path: 'dashboard',
+		loadComponent: () => import('./dashboard/dashboard.component'),
+		children: [
+			{ path: '', redirectTo: 'products', pathMatch: 'full' },
+			{ path: 'products', loadComponent: () => import('./dashboard/pages/nft/nft.component') },
+			{ path: 'podcast', loadComponent: () => import('./dashboard/pages/podcast/podcast.component') },
+			{ path: '**', redirectTo: 'error/404' },
+		],
+	},
 	{ path: '404', pathMatch: 'full', component: NotFoundComponent },
 	{ path: '**', redirectTo: '404' },
 ];

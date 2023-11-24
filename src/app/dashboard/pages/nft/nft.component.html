@@ -1,0 +1,23 @@
+<div class="mx-auto px-4 py-4 lg:container sm:px-8">
+	<!-- Header -->
+	<dash-nft-header />
+	<!-- end Header -->
+
+	<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+		<!-- Dual Card -->
+		<div class="md:col-span-2">
+			<dash-nft-dual-card [nft]="nft[0]" />
+		</div>
+		<!-- end Dual Card -->
+		<!-- Single Card -->
+		<dash-nft-single-card [nft]="nft[1]" />
+		<!-- end Single Card -->
+		<!-- Single Card -->
+		<dash-nft-single-card [nft]="nft[2]" />
+		<!-- end Single Card -->
+		<!-- Auctions Table -->
+		<div class="md:col-span-2 xl:col-span-3">
+			<dash-nft-auctions-table />
+		</div>
+	</div>
+</div>

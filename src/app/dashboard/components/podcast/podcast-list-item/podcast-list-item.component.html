@@ -1,0 +1,47 @@
+<div
+	class="group relative grid h-[56px] grid-cols-[16px,4fr,2fr,4fr,minmax(120px,1fr)] gap-4 rounded-md px-4 hover:bg-white dark:text-night-400 dark:hover:bg-night-700">
+	<div class="flex items-center justify-self-end">
+		<div class="relative inline-block h-[16px] min-h-[16px] w-[16px] min-w-[16px]">
+			<span class="absolute -top-[4px] right-1 block align-baseline ordinal tabular-nums group-hover:hidden">
+				{{ index + 1 }}
+			</span>
+			<button class="hidden fill-black group-hover:block dark:fill-white">
+				<ng-icon name="heroPlaySolid" size="1rem" />
+			</button>
+		</div>
+	</div>
+	<div class="flex items-center justify-self-start">
+		<div class="mr-4 h-10 w-10" style="position: relative">
+			<img ngSrc="{{ podcast.albumCover }}" class="" alt="album photo" fill />
+		</div>
+		<div class="gap grid items-center pr-8">
+			<a class="justify-self-start text-sm text-black dark:text-white">
+				<div class="line-clamp-1 truncate whitespace-normal">{{ podcast.title }}</div>
+			</a>
+			<span class="line-clamp-1 truncate whitespace-normal text-sm text-gray-400">
+				@for (artist of podcast.artists; track artist) {
+					<a> {{ artist }}</a>
+				} @empty {
+					<p data-testid="no-artist">Can't artist name</p>
+				}
+			</span>
+		</div>
+	</div>
+	<div class="flex items-center justify-self-start">
+		<span class="">
+			<a class="line-clamp-1 truncate whitespace-normal text-sm">{{ podcast.description }}</a>
+		</span>
+	</div>
+	<div class="flex items-center justify-self-start">
+		<span class="text-sm">{{ podcast.releaseDate }}</span>
+	</div>
+	<div class="flex items-center justify-self-end">
+		<button type="button" class="mr-4 flex fill-[#b3b3b3] opacity-0 group-hover:opacity-100">
+			<ng-icon name="heroHeartSolid" size="1rem" />
+		</button>
+		<div class="mr-4 text-sm">{{ podcast.duration }}</div>
+		<button type="button" class="fill-[#b3b3b3] opacity-0 group-hover:opacity-100">
+			<ng-icon name="heroEllipsisHorizontalSolid" size="1.5rem" />
+		</button>
+	</div>
+</div>

@@ -27,7 +27,7 @@
 				: 'pointer-events-none scale-95 opacity-0 duration-100 ease-in'
 		"
 		class="absolute right-0 z-10 mt-2 w-60 origin-top-right transform rounded-md bg-white py-4 shadow-custom ring-1 ring-transparent ring-opacity-5 transition focus:outline-none dark:bg-night-600">
-		<div class="flext-row flex items-center px-4 pb-4">
+		<div class="flex flex-row items-center px-4 pb-4">
 			<div class="flex h-10 w-10 shrink-0 items-center justify-center" style="position: relative">
 				<img
 					class="h-full w-full rounded-md object-cover object-center"
@@ -43,16 +43,12 @@
 			</div>
 		</div>
 		<div class="border-b border-dashed border-gray-200 dark:border-night-500"></div>
-		<ul class="mx-4 my-2">
-			@for (link of userData.links; track link) {
-				<li
-					routerLink="{{ link.href }}"
-					class="block cursor-pointer rounded-md px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 hover:text-primary-500 dark:text-night-200 dark:hover:bg-night-500 dark:hover:text-primary-500">
-					{{ link.title }}
-				</li>
-			} @empty {
-				<li data-testid="no-link">Can't link</li>
-			}
+		<ul class="mx-4 my-2" *ngFor="let link of userData.links">
+			<li
+				routerLink="{{ link.href }}"
+				class="block cursor-pointer rounded-md px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 hover:text-primary-500 dark:text-night-200 dark:hover:bg-night-500 dark:hover:text-primary-500">
+				{{ link.title }}
+			</li>
 		</ul>
 	</div>
 </div>

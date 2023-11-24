@@ -27,18 +27,13 @@
 				? 'pointer-events-auto scale-100 animate-fade-in-up opacity-100 duration-200'
 				: 'pointer-events-none scale-95 opacity-0 duration-100 ease-in'
 		"
-		class="absolute right-0 z-10 mt-2 w-60 origin-top-right transform rounded-md bg-white py-4 shadow-custom ring-1 ring-transparent ring-opacity-5 transition focus:outline-none dark:bg-gray-600">
-		<div class="border-b border-dashed border-gray-200 dark:border-gray-500"></div>
-		<ul class="mx-4 my-2">
-			@for (link of userData.links; track link) {
-				<li
-					routerLink="{{ link.href }}"
-					class="block cursor-pointer rounded-md px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 hover:text-primary-500 dark:text-gray-200 dark:hover:bg-gray-500 dark:hover:text-primary-500">
-					{{ link.title }}
-				</li>
-			} @empty {
-				<li data-testid="no-link">Can't link</li>
-			}
+		class="absolute right-0 z-10 mt-2 w-60 origin-top-right transform rounded-md bg-white py-2 shadow-custom ring-1 ring-transparent ring-opacity-5 transition focus:outline-none dark:bg-gray-600">
+		<ul class="mx-4 my-2" *ngFor="let link of userData.links">
+			<li
+				routerLink="{{ link.href }}"
+				class="block cursor-pointer rounded-md px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 hover:text-primary-500 dark:text-gray-200 dark:hover:bg-gray-500 dark:hover:text-primary-500">
+				{{ link.title }}
+			</li>
 		</ul>
 	</div>
 </div>

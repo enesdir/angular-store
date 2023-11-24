@@ -13,8 +13,8 @@ import {
 	heroUsers,
 } from '@ng-icons/heroicons/outline';
 import { heroChevronRightSolid } from '@ng-icons/heroicons/solid';
-import { SubMenuItem } from 'src/app/core/models/menu.model';
 
+import { SubMenuItem } from '@/core/models/menu.model';
 import { MenuService } from '@/core/services/menu.service';
 import { NavbarMobileSubmenuComponent } from '../navbar-mobile-submenu/navbar-mobile-submenu.component';
 

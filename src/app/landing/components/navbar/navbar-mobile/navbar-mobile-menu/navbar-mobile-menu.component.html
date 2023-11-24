@@ -20,7 +20,7 @@
 					<div
 						[ngClass]="item.active && !menuService.showSideBar ? 'text-primary-500' : ''"
 						class="pointer-events-none absolute m-2">
-						<ng-icon name="{{ item.icon }}" class="'h-5 w-5'" />
+						<ng-icon name="{{ item.icon }}" size="1.25rem" />
 					</div>
 
 					<!-- Condition -->
@@ -62,7 +62,7 @@
 						*ngIf="item.children"
 						[ngClass]="{ hidden: !menuService.showSideBar, 'rotate-90': item.expanded }"
 						class="pointer-events-none absolute right-0 top-1 flex items-center p-1 text-gray-400 transition-all duration-500 dark:text-night-400">
-						<ng-icon name="heroChevronRightSolid" class="h-5 w-5" />
+						<ng-icon name="heroChevronRightSolid" size="1.25rem" />
 					</button>
 				</div>
 

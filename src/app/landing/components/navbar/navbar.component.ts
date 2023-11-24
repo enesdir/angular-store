@@ -8,13 +8,14 @@ import { landingMenu } from '@/landing/constants/landingMenu';
 import { LogoComponent } from '@/shared/components/logo/logo.component';
 import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
 import { NavbarMobileComponent } from './navbar-mobile/navbar-mobile.component';
+import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
 
 @Component({
 	selector: 'app-navbar',
 	templateUrl: './navbar.component.html',
 
 	standalone: true,
-	imports: [NgClass, NgIconComponent, NavbarMenuComponent, NavbarMobileComponent, LogoComponent],
+	imports: [NgClass, NgIconComponent, NavbarMenuComponent, NavbarMobileComponent, LogoComponent, ProfileMenuComponent],
 	viewProviders: [provideIcons({ heroBars3, heroXMark, heroBell })],
 })
 export class NavbarComponent {

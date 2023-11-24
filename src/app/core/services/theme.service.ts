@@ -11,7 +11,7 @@ export type ThemePreference = 'light' | 'dark';
 export class ThemeService {
 	private readonly themeKey = 'preferred-theme';
 	private readonly defaultTheme: ThemePreference = 'light';
-	private themeChanged = signal<ThemePreference>(this.theme);
+	public themeChanged = signal<ThemePreference>(this.theme);
 
 	constructor(
 		@Inject(PLATFORM_ID) private platformId: object,

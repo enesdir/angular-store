@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable, OnDestroy, signal } from '@angular/core';
 import { NavigationEnd, Router, Event as RouterEvent } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -8,16 +8,16 @@ import { MenuItem, SubMenuItem } from '@/core/models/menu.model';
 	providedIn: 'root',
 })
 export class MenuService implements OnDestroy {
-	private _showSidebar: boolean = true;
-	private _showMobileMenu: boolean = false;
-	private _pagesMenu: MenuItem[] = [];
+	private _showSidebar = signal<boolean>(true);
+	private _showMobileMenu = signal<boolean>(false);
+	private _pagesMenu = signal<MenuItem[]>([]);
 	private _subscription: Subscription = new Subscription();
 
 	constructor(private router: Router) {
 		const sub = this.router.events.subscribe((event: RouterEvent) => {
 			if (event instanceof NavigationEnd) {
 				// Expand menu base on active route
-				this._pagesMenu.forEach((menu: MenuItem) => {
+				this._pagesMenu().forEach((menu: MenuItem) => {
 					let activeGroup: boolean = false;
 					menu.items.forEach((subMenu: SubMenuItem) => {
 						const active: boolean = this.isActive(subMenu.route || '');
@@ -37,36 +37,39 @@ export class MenuService implements OnDestroy {
 
 	// Getters
 	get showSideBar(): boolean {
-		return this._showSidebar;
+		return this._showSidebar();
 	}
 	get showMobileMenu(): boolean {
-		return this._showMobileMenu;
+		return this._showMobileMenu();
 	}
 	get pagesMenu(): MenuItem[] {
-		return this._pagesMenu;
+		return this._pagesMenu();
 	}
 
 	// Setters
 	set showSideBar(value: boolean) {
-		this._showSidebar = value;
+		this._showSidebar.set(value);
 	}
 	set showMobileMenu(value: boolean) {
-		this._showMobileMenu = value;
+		this._showMobileMenu.set(value);
 	}
 
 	// Set menu data
-	setMenuData(menuData: MenuItem[]): void {
-		this._pagesMenu = menuData;
+	public setMenuData(menuData: MenuItem[]): void {
+		this._pagesMenu.set(menuData);
 	}
 
 	// Toggle sidebar visibility
 	public toggleMobileMenu(): void {
-		this._showMobileMenu = !this._showMobileMenu;
+		this._showMobileMenu.set(!this._showMobileMenu());
 	}
 
+	public setMobileMenu(value: boolean): void {
+		this._showMobileMenu.set(value);
+	}
 	// Toggle sidebar visibility
 	public toggleSidebar(): void {
-		this._showSidebar = !this._showSidebar;
+		this._showSidebar.set(!this._showSidebar());
 	}
 
 	// Toggle menu expanded state

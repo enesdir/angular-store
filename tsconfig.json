@@ -18,11 +18,12 @@
 		"target": "ES2022",
 		"module": "ES2022",
 		"useDefineForClassFields": false,
+		"resolveJsonModule": true,
 		"lib": ["ES2022", "dom"],
 		"baseUrl": "./",
 		"paths": {
 			"@/*": ["src/app/*"],
-			"~/*": ["src/*"]
+			"~/*": ["./*"]
 		}
 	},
 	"angularCompilerOptions": {

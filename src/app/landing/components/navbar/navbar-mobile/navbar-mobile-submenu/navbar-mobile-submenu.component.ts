@@ -3,8 +3,8 @@ import { Component, Input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroChevronRightSolid } from '@ng-icons/heroicons/solid';
-import { SubMenuItem } from 'src/app/core/models/menu.model';
 
+import { SubMenuItem } from '@/core/models/menu.model';
 import { MenuService } from '@/core/services/menu.service';
 
 @Component({

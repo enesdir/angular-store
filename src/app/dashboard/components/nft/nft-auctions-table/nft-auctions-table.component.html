@@ -25,14 +25,11 @@
 		<!--end Table head-->
 		<!--Table body-->
 		<tbody>
-			@for (auction of activeAuction; track auction.id) {
-				<dash-nft-auctions-table-item [auction]="auction" />
-			} @empty {
-				<tr
-					class="border-b border-dashed border-gray-200 hover:bg-gray-100 dark:border-night-500 dark:hover:bg-night-600">
-					<td>There is no item</td>
-				</tr>
-			}
+			<tr
+				*ngFor="let auction of activeAuction"
+				[auction]="auction"
+				nft-auctions-table-item
+				class="border-b border-dashed border-gray-200 hover:bg-gray-100 dark:border-night-500 dark:hover:bg-night-600"></tr>
 		</tbody>
 		<!--end::Table body-->
 	</table>

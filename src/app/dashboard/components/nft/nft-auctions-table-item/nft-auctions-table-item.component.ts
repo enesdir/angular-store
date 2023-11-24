@@ -6,7 +6,8 @@ import { heroArrowSmallRight } from '@ng-icons/heroicons/outline';
 import { Nft } from '@/dashboard/models/nft';
 
 @Component({
-	selector: 'dash-nft-auctions-table-item',
+	// eslint-disable-next-line @angular-eslint/component-selector
+	selector: '[nft-auctions-table-item]',
 	templateUrl: './nft-auctions-table-item.component.html',
 	standalone: true,
 	imports: [NgIconComponent, NgOptimizedImage, CurrencyPipe],

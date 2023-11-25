@@ -6,13 +6,12 @@ import { heroMinusSmallSolid, heroPlusSmallSolid } from '@ng-icons/heroicons/sol
 import { CartProduct } from '@/landing/models/cart-product';
 import { Product } from '@/landing/models/product';
 import { CartService } from '@/landing/services/cart.service';
-import { ButtonComponent } from '@/shared/components/button/button.component';
 
 @Component({
 	selector: 'app-product-info',
 	templateUrl: './product-info.component.html',
 	standalone: true,
-	imports: [NgIf, CurrencyPipe, PercentPipe, NgClass, ButtonComponent, NgIconComponent],
+	imports: [NgIf, CurrencyPipe, PercentPipe, NgClass, NgIconComponent],
 	viewProviders: [
 		provideIcons({
 			heroMinusSmallSolid,

@@ -1,0 +1,62 @@
+<section class="flex flex-col md:h-full md:justify-start">
+	<header class="">
+		<h2 class="text-[hsl(26, 100%, 55%)] text-xs font-bold uppercase tracking-widest">
+			{{ product.brand }}
+		</h2>
+	</header>
+	<h1 class="text-3xl font-bold text-gray-950 md:text-4xl">
+		{{ product.title }}
+	</h1>
+	<p class="text-base text-gray-700">
+		{{ product.description }}
+	</p>
+
+	<div class="my-4 flex items-center justify-between md:flex-col md:items-start">
+		<div class="flex items-center gap-5">
+			<!-- discounted price -->
+			<p class="text-3xl font-bold">
+				{{ product.discountPrice || product.price | currency: 'USD' }}
+			</p>
+			<span class="rounded-sm bg-orange-200 px-2 font-bold text-orange-600">
+				{{ product.discountPercentage / 100 | percent }}
+			</span>
+		</div>
+		<!-- original price -->
+		<div class="font-bold text-gray-500 line-through" *ngIf="product.discountPrice">
+			{{ product.price | currency: 'USD' }}
+		</div>
+	</div>
+	<ul>
+		<li><b>Brand: </b>{{ product.brand }}</li>
+		<li><b>Category: </b>{{ product.category }}</li>
+		<li><b>Price: </b>{{ product.price }}</li>
+		<li><b>Discount: </b>{{ product.discountPercentage }}%</li>
+		<li><b>Rating: </b>{{ product.rating }}</li>
+		<li><b>Available: </b>{{ product.stock }}</li>
+	</ul>
+	<!-- product-info__buy -->
+	<div class="flex flex-col gap-4 md:flex-row">
+		<!-- product-quantity -->
+		<div class="flex items-center justify-between rounded-lg bg-gray-200 px-4 py-4 md:basis-36">
+			<button
+				class="h-5 w-5"
+				[ngClass]="quantity <= 0 ? 'cursor-not-allowed' : ''"
+				[disabled]="quantity <= 0"
+				(click)="removeProduct()">
+				<span class="m-auto hover:brightness-150"><ng-icon name="heroMinusSmallSolid" size="1.25rem" /></span>
+			</button>
+			<div class="font-bold">
+				{{ quantity }}
+			</div>
+			<button class="h-5 w-5" (click)="addProduct()">
+				<span class="m-auto hover:brightness-150"><ng-icon name="heroPlusSmallSolid" size="1.25rem" /></span>
+			</button>
+		</div>
+		<button
+			(clickEvent)="addProductToCart(product)"
+			class="flex w-full flex-wrap items-center justify-center gap-4 rounded-lg bg-orange-500 px-6 py-4 font-bold text-white hover:opacity-40 md:w-auto">
+			<span class="flex justify-center hover:brightness-150"><ng-icon name="heroPlusSmallSolid" size="2rem" /></span>
+			<span> Add to cart</span>
+		</button>
+	</div>
+</section>

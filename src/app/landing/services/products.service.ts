@@ -6,8 +6,9 @@ import { catchError, debounceTime, distinctUntilChanged, EMPTY, map, startWith, 
 
 import { environment } from '~/src/environments/environment';
 import { Product } from '@/landing/models/product';
-import { Products } from '@/landing/models/products';
+import { BaseProducts } from '@/landing/models/products';
 import { ProductsCategoryFilterPipe } from '@/landing/pipes/category-filter.pipe';
+import { DiscountPipe } from '@/landing/pipes/discount.pipe';
 import { ProductsSortPipe } from '@/landing/pipes/sort-filter.pipe';
 
 export interface ProductsState {
@@ -21,6 +22,7 @@ export interface ProductsState {
 export class ProductsService {
 	private categoryFilterPipe = new ProductsCategoryFilterPipe();
 	private productsSortPipe = new ProductsSortPipe();
+	private discountPipe = new DiscountPipe();
 	public productsPerPage = signal<number>(10);
 	public skip = signal<number>(0);
 	public searchFormControl = new FormControl();
@@ -57,8 +59,8 @@ export class ProductsService {
 					return EMPTY;
 				}),
 				map((response) => {
-					const products = this.calculateDiscountPrice(response.products);
-					this._unfilteredProducts.set(products);
+					// @ts-expect-error: we set array
+					this._unfilteredProducts.set(response.products);
 					this.setProducts();
 				})
 			)
@@ -90,25 +92,18 @@ export class ProductsService {
 		);
 	}
 
-	private calculateDiscountPrice(products: Product[]) {
-		return products.map((product) => {
-			product.discountPrice = product.price - (product.price * product.discountPercentage) / 100;
-			return product;
-		});
-	}
-
 	private fetchFromServer(search: string) {
 		const baseUrl: string = `${environment.API_URL}/products`;
 		const baseLimit: number = 100;
 		return this.http
-			.get<Products>(search ? `${baseUrl}/search?q=${search}&limit=${baseLimit}` : `${baseUrl}?limit=${baseLimit}`)
+			.get<BaseProducts>(search ? `${baseUrl}/search?q=${search}&limit=${baseLimit}` : `${baseUrl}?limit=${baseLimit}`)
 			.pipe(
 				catchError((err) => {
 					this.handleError(err);
 					return EMPTY;
 				}),
 				map((response) => {
-					const products = this.calculateDiscountPrice(response.products);
+					const products = this.discountPipe.transform(response.products);
 					return {
 						products,
 					};

@@ -1,5 +1,6 @@
-import { CurrencyPipe, NgOptimizedImage, NgStyle } from '@angular/common';
+import { CurrencyPipe, NgOptimizedImage, NgStyle, PercentPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import type { Product } from '@/landing/models/product';
 
@@ -7,7 +8,7 @@ import type { Product } from '@/landing/models/product';
 	selector: 'app-product-single-card',
 	templateUrl: './product-single-card.component.html',
 	standalone: true,
-	imports: [NgStyle, CurrencyPipe, NgOptimizedImage],
+	imports: [NgStyle, CurrencyPipe, NgOptimizedImage, RouterLink, PercentPipe],
 })
 export class ProductSingleCardComponent {
 	@Input({ required: true }) product!: Product;

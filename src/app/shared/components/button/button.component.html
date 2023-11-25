@@ -1,0 +1,4 @@
+<button (click)="click($event)" [ngClass]="finalStyles">
+	<img *ngIf="iconUrl" [ngClass]="iconStyle" [src]="iconUrl" alt="" />
+	{{ text }}
+</button>

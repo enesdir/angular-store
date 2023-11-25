@@ -1,0 +1,51 @@
+<section class="h-full w-full">
+	<div class="group relative isolate rounded-md">
+		<div class="relative pb-[100%]">
+			<div
+				(click)="isGalleryOn = !isGalleryOn"
+				(keypress)="isGalleryOn = !isGalleryOn"
+				tabindex="0"
+				class="cursor-pointer">
+				<img
+					ngSrc="{{ images[galleryService.selected] }}"
+					alt="podcast cover image"
+					class="absolute left-0 top-0 h-full w-full object-cover object-center"
+					fill />
+			</div>
+		</div>
+		<button
+			(click)="galleryService.prevImg()"
+			class="absolute inset-y-1/2 left-0 flex h-10 w-10 translate-y-[-50%] rotate-180 items-center justify-center rounded-full bg-white/20 text-black/20 hover:bg-white hover:text-black md:hidden">
+			<ng-icon name="heroChevronRightSolid" size="1.25rem" />
+		</button>
+
+		<button
+			(click)="galleryService.nextImg()"
+			class="absolute inset-y-1/2 right-0 flex h-10 w-10 translate-y-[-50%] items-center justify-center rounded-full bg-white/20 text-black/20 hover:bg-white hover:text-black md:hidden">
+			<ng-icon name="heroChevronRightSolid" size="1.25rem" />
+		</button>
+	</div>
+	<div class="hidden md:flex">
+		<div class="mt-4 grid h-full w-full grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+			<div
+				class="group relative isolate w-full rounded-md bg-white text-gray-200 dark:bg-night-700"
+				*ngFor="let imageSmall of images; index as i">
+				<div
+					class="relative cursor-pointer overflow-hidden rounded-xl border-2 pb-[100%]"
+					[ngClass]="i === galleryService.selected ? 'border-orange-400' : 'border-transparent'"
+					(click)="galleryService.selectImage(i)"
+					(keypress)="galleryService.selectImage(i)"
+					tabindex="0">
+					<img
+						ngSrc="{{ imageSmall }}"
+						alt="podcast cover image"
+						class="absolute left-0 top-0 h-full w-full object-cover object-center"
+						fill />
+				</div>
+				<div *ngIf="isGalleryOn" class="fixed inset-0 z-20 h-screen w-screen bg-black">
+					<app-product-image-gallery (closeGallery)="closeGallery()" [images]="images" />
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

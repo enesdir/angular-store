@@ -8,7 +8,11 @@ export const routes: Routes = [
 		loadComponent: () => import('./landing/landing.component'),
 		children: [
 			{ path: '', pathMatch: 'full', loadComponent: () => import('./landing/pages/home/home.component') },
-			{ path: 'search', pathMatch: 'full', loadComponent: () => import('./landing/pages/search/search.component') },
+			{
+				path: 'products/:productId',
+				loadComponent: () => import('./landing/pages/product/product.component'),
+			},
+			{ path: 'search', loadComponent: () => import('./landing/pages/search/search.component') },
 		],
 	},
 	{

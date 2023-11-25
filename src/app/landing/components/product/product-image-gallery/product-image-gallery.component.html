@@ -1,0 +1,54 @@
+<div
+	class="z-1000 fixed flex h-screen w-screen flex-row items-center justify-center bg-white bg-opacity-40 bg-clip-padding backdrop-blur-sm backdrop-filter dark:bg-slate-900 dark:bg-opacity-40 dark:bg-clip-padding dark:backdrop-blur-sm dark:backdrop-filter">
+	<div class="flex select-none flex-col justify-center gap-6">
+		<div class="relative">
+			<div
+				(click)="close()"
+				(keydown.escape)="close()"
+				(keyup.enter)="close()"
+				tabindex="0"
+				role="button"
+				aria-label="Close image"
+				class="absolute -right-2 -top-10 flex cursor-pointer rounded-full p-2 text-black hover:bg-slate-800">
+				<ng-icon name="heroXMarkSolid" size="1.25rem" />
+			</div>
+
+			<div class="h-[52em] w-[52em]" style="position: relative">
+				<img
+					class="h-full w-full cursor-pointer rounded-xl object-cover hover:shadow-md"
+					ngSrc="{{ images[galleryService.selected] }}"
+					alt=""
+					fill />
+			</div>
+
+			<button
+				(click)="galleryService.prevImg()"
+				class="absolute inset-y-1/2 left-5 flex h-10 w-10 translate-y-[-50%] rotate-180 items-center justify-center rounded-full bg-white/20 hover:bg-white">
+				<ng-icon name="heroChevronRightSolid" size="1.25rem" />
+			</button>
+
+			<button
+				(click)="galleryService.nextImg()"
+				class="absolute inset-y-1/2 right-5 flex h-10 w-10 translate-y-[-50%] items-center justify-center rounded-full bg-white/20 hover:bg-white">
+				<ng-icon name="heroChevronRightSolid" size="1.25rem" />
+			</button>
+		</div>
+
+		<div class="mx-auto flex w-full gap-6">
+			<div
+				*ngFor="let imageSmall of images; index as i"
+				class="cursor-pointer overflow-hidden rounded-xl border-2"
+				[ngClass]="i === galleryService.selected ? 'border-[hsl(26, 100%, 55%)]' : 'border-transparent'">
+				<div
+					class="flex h-16 w-16 items-center justify-center hover:opacity-40"
+					(click)="galleryService.selectImage(i)"
+					(keyup.enter)="galleryService.selectImage(i)"
+					tabindex="0"
+					role="button"
+					style="position: relative">
+					<img class="h-full w-full object-cover object-center" ngSrc="{{ imageSmall }}" alt="'Image ' + i" fill />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -9,7 +9,7 @@ import { ProductsService } from '@/landing/services/products.service';
 import { LoadingComponent } from '@/shared/components/loading/loading.component';
 
 @Component({
-	selector: 'app-home',
+	selector: 'app-home-page',
 	templateUrl: './home.component.html',
 	standalone: true,
 	imports: [NgFor, ProductsHeaderComponent, ProductListComponent, PaginationComponent, LoadingComponent],

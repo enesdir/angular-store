@@ -44,6 +44,7 @@ module.exports = {
 		'^(@angular/(.*)$)|^(angular$)',
 		'<THIRD_PARTY_MODULES>',
 		'',
+		'^(~/(.*)$)',
 		'^(@/(.*)$)',
 		'^[./]',
 		'',

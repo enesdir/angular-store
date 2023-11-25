@@ -10,7 +10,7 @@ import { ProductsService } from '@/landing/services/products.service';
 import { LoadingComponent } from '@/shared/components/loading/loading.component';
 
 @Component({
-	selector: 'app-home',
+	selector: 'app-search-page',
 	templateUrl: './search.component.html',
 	standalone: true,
 	imports: [

@@ -17,37 +17,18 @@
 				</div>
 				<!-- Right menu items -->
 				<div class="hidden md:block">
-					<div class="ml-4 flex items-center md:ml-6">
-						<button
-							type="button"
-							class="relative rounded-full p-1 text-gray-400 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 dark:bg-gray-800 dark:hover:text-white">
-							<span class="absolute -inset-1.5"></span>
-							<span class="sr-only">View notifications</span>
-							<span class="flex"><ng-icon class="h-6 w-6" name="heroBell" size="1.5rem" aria-hidden="true" /></span>
-						</button>
-
+					<div class="ml-4 flex items-center gap-x-2 md:ml-6">
+						<!-- Notification dropdown -->
+						<app-notification-menu />
+						<!-- Cart dropdown -->
+						<app-cart-menu />
 						<!-- Profile dropdown -->
 						<app-profile-menu />
 					</div>
 				</div>
 				<!-- Mobile Navigation Menu Button-->
 				<div class="flex md:hidden">
-					<button
-						(click)="menuService.toggleMobileMenu()"
-						type="button"
-						class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-900 hover:bg-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-offset-gray-800"
-						aria-controls="mobile-menu"
-						aria-expanded="false">
-						<span class="absolute -inset-0.5"></span>
-						<span class="sr-only">Open main menu</span>
-						<!-- Heroicon name: outline/menu -->
-						<span [ngClass]="menuService.showMobileMenu ? 'hidden' : 'flex'">
-							<ng-icon name="heroBars3" aria-hidden="true" size="1.5rem"
-						/></span>
-						<span [ngClass]="menuService.showMobileMenu ? 'flex' : 'hidden'"
-							><ng-icon name="heroXMark" size="1.5rem" aria-hidden="true"
-						/></span>
-					</button>
+					<app-burger-button />
 				</div>
 			</div>
 		</div>

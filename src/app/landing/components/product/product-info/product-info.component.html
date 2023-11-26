@@ -26,6 +26,7 @@
 			{{ product.price | currency: 'USD' }}
 		</div>
 	</div>
+
 	<ul>
 		<li><b>Brand: </b>{{ product.brand }}</li>
 		<li><b>Category: </b>{{ product.category }}</li>
@@ -42,18 +43,18 @@
 				class="h-5 w-5"
 				[ngClass]="quantity <= 0 ? 'cursor-not-allowed' : ''"
 				[disabled]="quantity <= 0"
-				(click)="removeProduct()">
+				(click)="decrementQuantity()">
 				<span class="m-auto hover:brightness-150"><ng-icon name="heroMinusSmallSolid" size="1.25rem" /></span>
 			</button>
 			<div class="font-bold">
 				{{ quantity }}
 			</div>
-			<button class="h-5 w-5" (click)="addProduct()">
+			<button class="h-5 w-5" (click)="incrementQuantity()">
 				<span class="m-auto hover:brightness-150"><ng-icon name="heroPlusSmallSolid" size="1.25rem" /></span>
 			</button>
 		</div>
 		<button
-			(clickEvent)="addProductToCart(product)"
+			(click)="addProductToCart()"
 			class="flex w-full flex-wrap items-center justify-center gap-4 rounded-lg bg-orange-500 px-6 py-4 font-bold text-white hover:opacity-40 md:w-auto">
 			<span class="flex justify-center hover:brightness-150"><ng-icon name="heroPlusSmallSolid" size="2rem" /></span>
 			<span> Add to cart</span>

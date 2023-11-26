@@ -38,7 +38,7 @@
 			<div
 				*ngFor="let imageSmall of images; index as i"
 				class="cursor-pointer overflow-hidden rounded-xl border-2"
-				[ngClass]="i === galleryService.selected ? 'border-[hsl(26, 100%, 55%)]' : 'border-transparent'">
+				[ngClass]="i === galleryService.selected ? 'border-orange-400' : 'border-transparent'">
 				<div
 					class="flex h-16 w-16 items-center justify-center hover:opacity-40"
 					(click)="galleryService.selectImage(i)"

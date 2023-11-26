@@ -1,38 +1,79 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { computed, Injectable, signal } from '@angular/core';
 
 import { CartProduct } from '../models/cart-product';
+import { Product } from '../models/product';
+
+export interface ProductsState {
+	products: CartProduct[];
+	userId: string | null;
+	merge: boolean;
+}
 
 @Injectable({
 	providedIn: 'root',
 })
 export class CartService {
-	private _cartList: BehaviorSubject<CartProduct[]> = new BehaviorSubject<CartProduct[]>([]);
-	cartList$: Observable<CartProduct[]> = this._cartList.asObservable();
+	private state = signal<ProductsState>({
+		products: [],
+		userId: null,
+		merge: true,
+	});
 
-	private actualAddProductId: number = 1;
+	public cartList = computed(() => this.state().products);
 
 	constructor() {}
 
-	addProductToCart(product: CartProduct): void {
-		const currentList = this._cartList.getValue();
-		const productToAdd = product;
-		productToAdd.id = this.actualAddProductId;
+	public updateProductQuantity(productId: string, quantity: number): void {
+		const updatedProducts = this.state().products.map((product) => {
+			if (product.id === productId) {
+				const finalPrice = this.calculateFinalPrice(product.unitPrice, quantity);
+				return { ...product, quantity, finalPrice };
+			}
+			return product;
+		});
 
-		this.nextId();
-
-		currentList.push(productToAdd);
-		this._cartList.next(currentList);
+		this.updateProducts(updatedProducts);
 	}
 
-	deleteInCartProduct(id: number): void {
-		const currentList = this._cartList.getValue();
-		const filteredList = currentList.filter((product) => product.id != id);
+	public addProductToCart(product: Product, quantity: number): void {
+		const productPrice = this.calculatePrice(product);
+		const finalPrice = this.calculateFinalPrice(productPrice, quantity);
+		const existingCartItem = this.state().products.find((item) => item.id === product.id);
 
-		this._cartList.next(filteredList);
+		const updatedProducts = existingCartItem
+			? this.updateExistingProduct(existingCartItem, quantity, finalPrice)
+			: this.addNewProduct(product, productPrice, quantity, finalPrice);
+
+		this.updateProducts(updatedProducts);
 	}
 
-	private nextId(): void {
-		this.actualAddProductId++;
+	private addNewProduct(product: Product, productPrice: number, quantity: number, finalPrice: number): CartProduct[] {
+		const newCartItem: CartProduct = {
+			id: product.id,
+			title: product.title,
+			image: product.thumbnail,
+			unitPrice: productPrice,
+			quantity: quantity,
+			finalPrice: finalPrice,
+		};
+		return [...this.state().products, newCartItem];
+	}
+
+	private updateExistingProduct(existingCartItem: CartProduct, quantity: number, finalPrice: number): CartProduct[] {
+		existingCartItem.quantity += quantity;
+		existingCartItem.finalPrice += finalPrice;
+		return [...this.state().products];
+	}
+
+	private updateProducts(updatedProducts: CartProduct[]): void {
+		this.state.update((state) => ({ ...state, products: updatedProducts }));
+	}
+
+	private calculateFinalPrice(productPrice: number, quantity: number): number {
+		return productPrice * quantity;
+	}
+
+	private calculatePrice(product: Product): number {
+		return product.discountPercentage ? product.discountPrice : product.price;
 	}
 }

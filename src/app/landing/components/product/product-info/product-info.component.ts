@@ -3,7 +3,6 @@ import { Component, Input } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroMinusSmallSolid, heroPlusSmallSolid } from '@ng-icons/heroicons/solid';
 
-import { CartProduct } from '@/landing/models/cart-product';
 import { Product } from '@/landing/models/product';
 import { CartService } from '@/landing/services/cart.service';
 
@@ -22,37 +21,21 @@ import { CartService } from '@/landing/services/cart.service';
 export class ProductInfoComponent {
 	@Input({ required: true }) product!: Product;
 
-	quantity: number = 0;
-
-	mainPrice: number | undefined;
-	realPrice?: number | undefined;
-	discount?: number | undefined;
+	quantity = 1;
 
 	constructor(private cartService: CartService) {}
 
-	addProductToCart(product: Product) {
-		if (this.quantity > 0) {
-			// check the correct price (normal price or discount)
-			const productPrice = product.discountPercentage ? product.discountPrice : product.price;
-			// final price (including multipled)
-			const finalPrice = productPrice * this.quantity;
-
-			const productToCart: CartProduct = {
-				title: product.title,
-				quantity: this.quantity,
-				unitPrice: product.price,
-				finalPrice: finalPrice,
-				image: product.images[0],
-			};
-
-			this.cartService.addProductToCart(productToCart);
-		}
-	}
-
-	addProduct(): void {
+	incrementQuantity(): void {
 		this.quantity++;
 	}
-	removeProduct(): void {
-		this.quantity--;
+
+	addProductToCart(): void {
+		this.cartService.addProductToCart(this.product, this.quantity);
+	}
+
+	decrementQuantity(): void {
+		if (this.quantity > 0) {
+			this.quantity--;
+		}
 	}
 }

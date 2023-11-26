@@ -44,15 +44,19 @@ export class CartService {
 		this.updateCartInLocalStorage({ ...this.state(), products: updatedProducts }); // Update cart data in localStorage
 	}
 	public updateProductQuantity(productId: string, quantity: number): void {
-		const updatedProducts = this.state().products.map((product) => {
-			if (product.id === productId) {
-				const finalPrice = this.calculateFinalPrice(product.unitPrice, quantity);
-				return { ...product, quantity, finalPrice };
-			}
-			return product;
-		});
+		if (quantity === 0) {
+			this.removeProductFromCart(productId);
+		} else {
+			const updatedProducts = this.state().products.map((product) => {
+				if (product.id === productId) {
+					const finalPrice = this.calculateFinalPrice(product.unitPrice, quantity);
+					return { ...product, quantity, finalPrice };
+				}
+				return product;
+			});
 
-		this.updateProducts(updatedProducts);
+			this.updateProducts(updatedProducts);
+		}
 	}
 
 	public addProductToCart(product: Product, quantity: number): void {
@@ -83,6 +87,11 @@ export class CartService {
 		existingCartItem.quantity += quantity;
 		existingCartItem.finalPrice += finalPrice;
 		return [...this.state().products];
+	}
+
+	private removeProductFromCart(productId: string): void {
+		const updatedProducts = this.state().products.filter((product) => product.id !== productId);
+		this.updateProducts(updatedProducts);
 	}
 
 	private calculateFinalPrice(productPrice: number, quantity: number): number {

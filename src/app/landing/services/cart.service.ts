@@ -1,5 +1,7 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { computed, Inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
 
+import { BrowserStorageService } from '@/core/services/storage.service';
 import { CartProduct } from '../models/cart-product';
 import { Product } from '../models/product';
 
@@ -14,15 +16,33 @@ export interface ProductsState {
 })
 export class CartService {
 	private state = signal<ProductsState>({
-		products: [],
-		userId: null,
-		merge: true,
+		...this.getCartFromLocalStorage(),
 	});
 
 	public cartList = computed(() => this.state().products);
 
-	constructor() {}
+	constructor(
+		@Inject(PLATFORM_ID) private platformId: object,
+		private localStorageService: BrowserStorageService
+	) {}
+	private getCartFromLocalStorage(): ProductsState {
+		if (isPlatformBrowser(this.platformId)) {
+			const cartData = this.localStorageService.getItem('cart');
+			return cartData ? JSON.parse(cartData) : { products: [], userId: null, merge: false };
+		}
+		return { products: [], userId: null, merge: false };
+	}
 
+	private updateCartInLocalStorage(cartState: ProductsState): void {
+		if (isPlatformBrowser(this.platformId)) {
+			return this.localStorageService.setItem('cart', JSON.stringify(cartState));
+		}
+	}
+
+	private updateProducts(updatedProducts: CartProduct[]): void {
+		this.state.update((state) => ({ ...state, products: updatedProducts }));
+		this.updateCartInLocalStorage({ ...this.state(), products: updatedProducts }); // Update cart data in localStorage
+	}
 	public updateProductQuantity(productId: string, quantity: number): void {
 		const updatedProducts = this.state().products.map((product) => {
 			if (product.id === productId) {
@@ -63,10 +83,6 @@ export class CartService {
 		existingCartItem.quantity += quantity;
 		existingCartItem.finalPrice += finalPrice;
 		return [...this.state().products];
-	}
-
-	private updateProducts(updatedProducts: CartProduct[]): void {
-		this.state.update((state) => ({ ...state, products: updatedProducts }));
 	}
 
 	private calculateFinalPrice(productPrice: number, quantity: number): number {

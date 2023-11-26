@@ -3,6 +3,7 @@ import type { MenuItem } from '@/core/models/menu.model';
 export const landingMenu: MenuItem[] = [
 	{
 		group: 'Electronics',
+		route: '/products',
 		separator: false,
 		items: [
 			{

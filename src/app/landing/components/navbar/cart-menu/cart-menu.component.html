@@ -12,6 +12,11 @@
 		<span class="absolute -inset-1.5"></span>
 		<span class="sr-only">Open user menu</span>
 		<span class="flex"><ng-icon name="heroShoppingCart" size="1.5rem" aria-hidden="true" /></span>
+		<span
+			*ngIf="cartList().length > 0"
+			class="absolute -right-2 -top-1 h-4 w-4 rounded-full bg-orange-500 p-0.5 text-center text-[0.6rem] font-bold text-white">
+			{{ cartList().length }}
+		</span>
 	</button>
 	<!-- Dropdown -->
 	<div
@@ -24,12 +29,12 @@
 		class="absolute right-0 z-10 mt-2 w-60 origin-top-right transform rounded-md bg-white py-2 shadow-custom ring-1 ring-transparent ring-opacity-5 transition focus:outline-none dark:bg-gray-600">
 		<div>
 			<div>
-				<h2 class="p-6 font-bold">Cart {{ cartList.length }}</h2>
+				<h2 class="p-6 font-bold">Cart {{ cartList().length }}</h2>
 			</div>
-			<hr class="text-Grayish-blue opacity-40" />
+			<hr class="text-blue-950 opacity-40 dark:text-blue-400" />
 			<div
 				class="flex h-full flex-1 flex-col items-center justify-between gap-7 p-6 font-bold text-blue-950 dark:text-blue-400">
-				<p *ngIf="cartList.length; else productList" class="m-auto">Your cart is empty.</p>
+				<p *ngIf="!cartList().length; else productList" class="m-auto">Your cart is empty.</p>
 
 				<ng-template #productList>
 					<div class="flex max-h-44 w-full flex-col gap-3 overflow-auto">
@@ -49,7 +54,7 @@
 								</div>
 							</div>
 							<button
-								[ngClass]="cartList.length > 3 ? 'mr-3' : ''"
+								[ngClass]="cartList().length > 3 ? 'mr-3' : ''"
 								*ngIf="product.id"
 								(click)="updateQuantity(product.id, product.quantity - 1)">
 								<span class="flex items-center hover:invert"

@@ -1,5 +1,6 @@
 export type MenuItem = {
 	group: string;
+	route?: string | null;
 	separator?: boolean;
 	selected?: boolean;
 	active?: boolean;

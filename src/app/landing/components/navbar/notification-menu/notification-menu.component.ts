@@ -1,4 +1,4 @@
-import { NgClass, NgFor, NgOptimizedImage } from '@angular/common';
+import { NgClass, NgFor, NgIf, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -10,20 +10,22 @@ import { ClickOutsideDirective } from '@/shared/directives/click-outside.directi
 	selector: 'app-notification-menu',
 	templateUrl: './notification-menu.component.html',
 	standalone: true,
-	imports: [ClickOutsideDirective, NgClass, RouterLink, NgOptimizedImage, NgFor, NgIconComponent],
+	imports: [ClickOutsideDirective, NgClass, RouterLink, NgOptimizedImage, NgFor, NgIconComponent, NgIf],
 	viewProviders: [provideIcons({ heroBell })],
 })
 export class NotificationMenuComponent {
 	public isMenuOpen = false;
-	notificationData = {
-		name: 'Awesome User',
-		links: [
-			{
-				title: 'Notifications',
-				href: '/dashboard',
-			},
-		],
-	};
+	notificationData = [
+		{
+			name: 'Awesome User',
+			links: [
+				{
+					title: 'Notifications',
+					href: '/dashboard',
+				},
+			],
+		},
+	];
 	constructor() {}
 
 	public toggleMenu(): void {

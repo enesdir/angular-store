@@ -12,6 +12,11 @@
 		<span class="absolute -inset-1.5"></span>
 		<span class="sr-only">View notifications</span>
 		<span class="flex"><ng-icon name="heroBell" size="1.5rem" aria-hidden="true" /></span>
+		<span
+			*ngIf="notificationData.length > 0"
+			class="absolute -right-2 -top-1 h-4 w-4 items-center rounded-full bg-orange-500 p-0.5 text-center text-[0.6rem] font-bold text-white">
+			{{ notificationData.length }}
+		</span>
 	</button>
 	<!-- Dropdown -->
 	<div
@@ -22,11 +27,16 @@
 				: 'pointer-events-none scale-95 opacity-0 duration-100 ease-in'
 		"
 		class="absolute right-0 z-10 mt-2 w-60 origin-top-right transform rounded-md bg-white py-2 shadow-custom ring-1 ring-transparent ring-opacity-5 transition focus:outline-none dark:bg-gray-600">
-		<ul class="mx-4 my-2" *ngFor="let link of notificationData.links">
-			<li
-				routerLink="{{ link.href }}"
-				class="block cursor-pointer rounded-md px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 hover:text-primary-500 dark:text-gray-200 dark:hover:bg-gray-500 dark:hover:text-primary-500">
-				{{ link.title }}
+		<ul class="mx-4 my-2" *ngFor="let notification of notificationData">
+			<li>
+				{{ notification.name }}
+				<ul class="mx-4 my-2" *ngFor="let link of notification.links">
+					<li
+						routerLink="{{ link.href }}"
+						class="block cursor-pointer rounded-md px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 hover:text-primary-500 dark:text-gray-200 dark:hover:bg-gray-500 dark:hover:text-primary-500">
+						{{ link.title }}
+					</li>
+				</ul>
 			</li>
 		</ul>
 	</div>

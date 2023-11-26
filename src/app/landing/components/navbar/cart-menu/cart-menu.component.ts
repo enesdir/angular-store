@@ -30,7 +30,7 @@ export class CartMenuComponent {
 	public toggleMenu(): void {
 		this.isMenuOpen = !this.isMenuOpen;
 	}
-	constructor(public cartService: CartService) {}
+	constructor(private cartService: CartService) {}
 	public get cartList() {
 		return this.cartService.cartList;
 	}

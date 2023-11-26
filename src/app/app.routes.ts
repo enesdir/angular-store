@@ -39,7 +39,8 @@ export const routes: Routes = [
 		loadComponent: () => import('./dashboard/dashboard.component'),
 		children: [
 			{ path: '', redirectTo: 'products', pathMatch: 'full' },
-			{ path: 'products', loadComponent: () => import('./dashboard/pages/nft/nft.component') },
+			{ path: 'products', loadComponent: () => import('./dashboard/pages/products/products.component') },
+			{ path: 'nfts', loadComponent: () => import('./dashboard/pages/nft/nft.component') },
 			{ path: 'podcast', loadComponent: () => import('./dashboard/pages/podcast/podcast.component') },
 			{ path: '**', redirectTo: 'error/404' },
 		],

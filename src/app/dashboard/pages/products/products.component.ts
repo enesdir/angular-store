@@ -1,10 +1,9 @@
 import { NgFor } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { ProductListTableComponent } from '@/dashboard/components/products/product-list-table/product-list-table.component';
 import { ProductsHeaderComponent } from '@/dashboard/components/products/products-header/products-header.component';
-import { ProductListComponent } from '@/landing/components/products/product-list/product-list.component';
 import { SearchBarComponent } from '@/landing/components/search/search.component';
 import { ProductsService } from '@/landing/services/products.service';
 import { LoadingComponent } from '@/shared/components/loading/loading.component';
@@ -26,14 +25,14 @@ import { PaginationComponent } from '@/shared/components/pagination/pagination.c
 export default class ProductsComponent implements OnInit {
 	currentPage: number = 1;
 
-	private _productsService = inject(ProductsService);
 	public products = this._productsService.products;
 	public loading = this._productsService.loading;
 	public searchFormControl = this._productsService.searchFormControl;
 
 	constructor(
 		private route: ActivatedRoute,
-		private router: Router
+		private router: Router,
+		private _productsService: ProductsService
 	) {}
 
 	public get totalPages() {

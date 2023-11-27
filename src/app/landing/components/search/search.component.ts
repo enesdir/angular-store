@@ -6,11 +6,11 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 	selector: 'app-search-bar',
 	template: `
 		<div class="py-2">
-			<input placeholder="subreddit..." type="text" [formControl]="subredditFormControl" />
+			<input placeholder="search..." type="text" [formControl]="searchFormControl" />
 		</div>
 	`,
 	imports: [ReactiveFormsModule],
 })
 export class SearchBarComponent {
-	@Input({ required: true }) subredditFormControl!: FormControl;
+	@Input({ required: true }) searchFormControl!: FormControl;
 }

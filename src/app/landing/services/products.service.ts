@@ -146,7 +146,31 @@ export class ProductsService {
 		this.category.set(category);
 		this.setProducts();
 	}
+	public updateSortKey(sortKey: string) {
+		this.skip.set(0);
 
+		const currentSortKey = this.sortKey();
+
+		if (sortKey !== currentSortKey) {
+			this.sortMode.set('asc');
+			this.sortKey.set(sortKey);
+		} else {
+			const currentSortMode = this.sortMode();
+			switch (currentSortMode) {
+				case 'disabled':
+					this.sortMode.set('asc');
+					break;
+				case 'asc':
+					this.sortMode.set('desc');
+					break;
+				case 'desc':
+					this.sortMode.set('disabled');
+					break;
+			}
+		}
+
+		this.setProducts();
+	}
 	private handleError(err: HttpErrorResponse) {
 		if (err.status === 404 && err.url) {
 			this.error$.next(`Failed to load products for /r/${err.url.split('/')[4]}`);

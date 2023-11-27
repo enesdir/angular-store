@@ -1,0 +1,18 @@
+<div class="group relative flex">
+	<button class="group flex items-center" (click)="updateSortKey(key)">
+		<span
+			class="flex hover:text-slate-800 focus:text-primary-700"
+			[ngClass]="{
+				'rotate-180 text-primary-500': key === sortKey() && sortMode() === 'asc',
+				'text-slate-500': key !== sortKey()
+			}"
+			><ng-icon name="tablerArrowBadgeDownFilled" size="1rem"
+		/></span>
+	</button>
+	<div class="fixed w-full">
+		<span
+			class="z-1 absolute -top-2 left-4 w-auto min-w-max origin-left scale-0 rounded-md bg-black p-2 text-xs font-bold text-white shadow-md transition-all duration-200 group-hover:scale-100 dark:bg-white dark:text-night-900">
+			sort
+		</span>
+	</div>
+</div>

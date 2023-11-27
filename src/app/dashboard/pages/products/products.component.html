@@ -1,8 +1,13 @@
 <div class="mx-auto px-4 py-4 lg:container sm:px-8">
 	<!-- Header -->
 	<dash-products-header />
-	<app-search-bar [searchFormControl]="searchFormControl" />
 	<!-- end Header -->
+	<!-- Search -->
+	<app-search-bar [searchFormControl]="searchFormControl" />
+	<!-- end Search -->
+	<!-- Filters -->
+	<dash-products-filter />
+	<!-- end Filters -->
 	<!-- Product List -->
 	@if (loading()) {
 		<app-loading />

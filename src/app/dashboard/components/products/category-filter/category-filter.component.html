@@ -1,0 +1,22 @@
+<!-- component -->
+<ng-container *ngIf="categories$ | async as categories; else loading">
+	<div class="hidden flex-wrap gap-2 sm:flex">
+		<app-chip [isActive]="category === cat" [text]="cat" (clickEvent)="category = cat" *ngFor="let cat of categories" />
+		<app-chip [isActive]="category === ''" [text]="'All'" (clickEvent)="category = ''" />
+	</div>
+	<div class="flex w-full flex-1 items-center sm:hidden">
+		<label for="category" class="flex-shrink text-sm font-medium text-gray-700 dark:text-white">Category:</label>
+		<select
+			class="flex w-full rounded-lg border-transparent bg-gray-100 text-sm text-gray-900 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:placeholder-red-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+			id="category"
+			[(ngModel)]="category">
+			<option *ngFor="let category of categories" [value]="category">
+				{{ category }}
+			</option>
+			<option [value]="''">All</option>
+		</select>
+	</div>
+</ng-container>
+<ng-template #loading>
+	<app-loading />
+</ng-template>

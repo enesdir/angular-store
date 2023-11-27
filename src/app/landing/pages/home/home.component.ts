@@ -14,7 +14,7 @@ import { LoadingComponent } from '@/shared/components/loading/loading.component'
 	standalone: true,
 	imports: [NgFor, ProductsHeaderComponent, ProductListComponent, PaginationComponent, LoadingComponent],
 })
-export default class HomeComponent implements OnInit {
+export default class HomePageComponent implements OnInit {
 	currentPage: number = 1;
 
 	constructor(

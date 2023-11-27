@@ -24,7 +24,7 @@ export default class ProductPageComponent implements OnInit {
 		private productService: ProductService
 	) {}
 
-	ngOnInit() {
+	ngOnInit(): void {
 		const productId = this.route.snapshot.paramMap.get('productId');
 		if (productId) {
 			this.product$ = this.productService.getProductById(+productId);

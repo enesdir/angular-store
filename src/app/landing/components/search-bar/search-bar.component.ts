@@ -4,11 +4,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 @Component({
 	standalone: true,
 	selector: 'app-search-bar',
-	template: `
-		<div class="py-2">
-			<input placeholder="search..." type="text" [formControl]="searchFormControl" />
-		</div>
-	`,
+	templateUrl: './search-bar.component.html',
+
 	imports: [ReactiveFormsModule],
 })
 export class SearchBarComponent {

@@ -1,0 +1,12 @@
+<div
+	class="center font-sans relative inline-block select-none whitespace-nowrap rounded-lg px-3.5 py-2 align-baseline text-xs font-bold uppercase leading-none"
+	[ngClass]="{
+		'bg-primary-500 text-white hover:bg-primary-600': isActive,
+		'bg-white text-gray-500 hover:text-primary-500 dark:bg-night-600 dark:text-night-200 dark:hover:bg-night-500':
+			!isActive
+	}"
+	(click)="click()"
+	(keydown.enter)="click()"
+	tabindex="0">
+	<div class="mt-px">{{ text }}</div>
+</div>

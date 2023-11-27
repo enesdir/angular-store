@@ -16,10 +16,19 @@ export class PaginationComponent {
 	@Input() totalPages: number = 0;
 	@Input() totalItems: number = 0;
 	@Input() itemsPerPage: number = 10;
+	@Input({ required: false }) variant: 'primary' | 'secondary' = 'primary';
 	@Output() pageChange = new EventEmitter<number>();
 
 	get pages(): number[] {
 		return Array.from({ length: this.totalPages }, (_, i) => i + 1);
+	}
+
+	get primary(): boolean {
+		return this.variant === 'primary';
+	}
+
+	get secondary(): boolean {
+		return this.variant === 'secondary';
 	}
 
 	gotoPrevious() {

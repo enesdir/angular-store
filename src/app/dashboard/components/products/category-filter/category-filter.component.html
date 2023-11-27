@@ -4,17 +4,23 @@
 		<app-chip [isActive]="category === cat" [text]="cat" (clickEvent)="category = cat" *ngFor="let cat of categories" />
 		<app-chip [isActive]="category === ''" [text]="'All'" (clickEvent)="category = ''" />
 	</div>
-	<div class="flex w-full flex-1 items-center sm:hidden">
-		<label for="category" class="flex-shrink text-sm font-medium text-gray-700 dark:text-white">Category:</label>
-		<select
-			class="flex w-full rounded-lg border-transparent bg-gray-100 text-sm text-gray-900 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:placeholder-red-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-			id="category"
-			[(ngModel)]="category">
-			<option *ngFor="let category of categories" [value]="category">
-				{{ category }}
-			</option>
-			<option [value]="''">All</option>
-		</select>
+	<div class="block w-full max-w-full self-center sm:hidden">
+		<label for="category" class="sr-only">Category:</label>
+		<div class="relative inline-flex w-full max-w-full self-center">
+			<span
+				class="pointer-events-none absolute right-0 top-0 m-2.5 flex rotate-90 rounded bg-white p-1 text-gray-500 dark:bg-purple-600 dark:text-white"
+				><ng-icon name="heroChevronRightSolid" size="1.5rem"
+			/></span>
+			<select
+				class="w-full appearance-none rounded border-2 border-gray-200 bg-gray-100 text-base font-bold capitalize text-gray-500 hover:border-gray-400 focus:outline-none dark:border-purple-700"
+				id="category"
+				[(ngModel)]="category">
+				<option *ngFor="let category of categories" [value]="category">
+					{{ category }}
+				</option>
+				<option [value]="''">All</option>
+			</select>
+		</div>
 	</div>
 </ng-container>
 <ng-template #loading>

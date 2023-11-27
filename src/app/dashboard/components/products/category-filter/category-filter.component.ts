@@ -1,6 +1,8 @@
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { heroChevronRightSolid } from '@ng-icons/heroicons/solid';
 import { Observable } from 'rxjs';
 
 import { CategoryService } from '@/landing/services/category.service';
@@ -12,7 +14,12 @@ import { LoadingComponent } from '@/shared/components/loading/loading.component'
 	selector: 'dash-category-filter',
 	templateUrl: './category-filter.component.html',
 	standalone: true,
-	imports: [NgIf, NgFor, ChipComponent, AsyncPipe, LoadingComponent, FormsModule],
+	imports: [NgIconComponent, NgIf, NgFor, ChipComponent, AsyncPipe, LoadingComponent, FormsModule],
+	viewProviders: [
+		provideIcons({
+			heroChevronRightSolid,
+		}),
+	],
 })
 export class CategoryFilterComponent implements OnInit {
 	categories$!: Observable<string[]>;

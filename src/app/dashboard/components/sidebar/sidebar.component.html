@@ -7,12 +7,14 @@
 			class="relative flex h-10 items-center"
 			[ngClass]="menuService.showSideBar ? 'justify-between' : 'justify-center'">
 			<div class="flex items-center" *ngIf="menuService.showSideBar">
-				<a class="flex items-center justify-center rounded bg-primary-500 p-0.5 focus:outline-none focus:ring-1">
+				<a
+					class="flex cursor-pointer items-center justify-center rounded p-0.5 focus:outline-none"
+					[routerLink]="['/dashboard']">
 					<app-logo />
+					<b class="ml-1 pl-2 text-sm font-bold dark:text-night-50">
+						{{ appJson.displayName }}
+					</b>
 				</a>
-				<b class="ml-1 pl-2 text-sm font-bold dark:text-night-50">
-					{{ appJson.displayName }}
-				</b>
 			</div>
 			<button
 				(click)="toggleSidebar()"

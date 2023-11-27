@@ -1,0 +1,55 @@
+<div class="flex-col rounded-lg bg-white px-8 py-8 dark:bg-night-700 sm:flex-row">
+	<div class="mb-4 flex items-center justify-between">
+		<div class="flex-col items-center">
+			<h3 class="text-md font-bold text-gray-900 dark:text-night-50">Active Projects</h3>
+			<span class="text-sm text-gray-400 dark:text-night-300">Updated 38 minutes ago</span>
+		</div>
+		<button
+			class="flex-none rounded-md bg-gray-100 px-4 py-2.5 text-xs font-semibold text-gray-500 hover:bg-gray-200 dark:bg-night-600 dark:text-night-200 dark:hover:bg-night-500">
+			History
+		</button>
+	</div>
+	<div cdkDropListGroup class="flex w-full flex-col gap-1 sm:flex-row">
+		<div class="w-full rounded-lg border border-night-300 p-2">
+			<h2 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-night-50">To do</h2>
+
+			<div cdkDropList [cdkDropListData]="todo" class="min-h-16 rounded-md p-2" (cdkDropListDropped)="drop($event)">
+				@for (item of todo; track item) {
+					<div
+						class="my-2 flex-none cursor-move rounded-md bg-gray-100 px-4 py-2.5 font-semibold text-gray-500 hover:bg-gray-200 dark:bg-night-600 dark:text-night-200 dark:hover:bg-night-500"
+						cdkDrag>
+						{{ item }}
+					</div>
+				}
+			</div>
+		</div>
+		<div class="w-full rounded-lg border border-night-300 p-2">
+			<h2 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-night-50">In Progress</h2>
+			<div
+				cdkDropList
+				[cdkDropListData]="inProgress"
+				class="min-h-16 rounded-sm p-2"
+				(cdkDropListDropped)="drop($event)">
+				@for (item of inProgress; track item) {
+					<div
+						class="my-2 flex-none cursor-move rounded-md bg-gray-100 px-4 py-2.5 font-semibold text-gray-500 hover:bg-gray-200 dark:bg-night-600 dark:text-night-200 dark:hover:bg-night-500"
+						cdkDrag>
+						{{ item }}
+					</div>
+				}
+			</div>
+		</div>
+		<div class="w-full rounded-lg border border-night-300 p-2">
+			<h2 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-night-50">Done</h2>
+			<div cdkDropList [cdkDropListData]="done" class="min-h-16 rounded-sm p-2" (cdkDropListDropped)="drop($event)">
+				@for (item of done; track item) {
+					<div
+						class="my-2 flex-none cursor-move rounded-md bg-gray-100 px-4 py-2.5 font-semibold text-gray-500 hover:bg-gray-200 dark:bg-night-600 dark:text-night-200 dark:hover:bg-night-500"
+						cdkDrag>
+						{{ item }}
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+</div>

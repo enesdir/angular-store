@@ -1,5 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import { MenuService } from '@/core/services/menu.service';
 import { LogoComponent } from '@/shared/components/logo/logo.component';
@@ -24,6 +25,7 @@ import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
 		ProfileMenuComponent,
 		CartMenuComponent,
 		BurgerButtonComponent,
+		RouterLink,
 	],
 })
 export class NavbarComponent {

@@ -10,9 +10,9 @@ import {
 	heroXMark,
 } from '@ng-icons/heroicons/outline';
 import { heroChevronDoubleLeftSolid } from '@ng-icons/heroicons/solid';
-import packageJson from '~/package.json';
 import { ThemeService } from 'src/app/core/services/theme.service';
 
+import packageJson from '~/package.json';
 import { MenuService } from '@/core/services/menu.service';
 import { LogoComponent } from '@/shared/components/logo/logo.component';
 import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
@@ -21,7 +21,7 @@ import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
 	selector: 'dash-sidebar',
 	templateUrl: './sidebar.component.html',
 	standalone: true,
-	imports: [NgClass, NgIf, SidebarMenuComponent, RouterLink, LogoComponent, NgIconComponent],
+	imports: [NgClass, NgIf, SidebarMenuComponent, RouterLink, LogoComponent, NgIconComponent, RouterLink],
 	viewProviders: [
 		provideIcons({
 			heroSun,

@@ -5,8 +5,10 @@
 				<div class="flex items-center">
 					<!-- Logo -->
 					<div class="flex flex-shrink-0 items-center">
-						<app-logo />
-						<b class="hidden pl-3 text-sm font-bold uppercase dark:text-night-50 sm:block"> Angular Store </b>
+						<a class="flex cursor-pointer items-center justify-center focus:outline-none" [routerLink]="['/']">
+							<app-logo />
+							<b class="hidden pl-3 text-sm font-bold uppercase dark:text-night-50 sm:block"> Angular Store </b></a
+						>
 					</div>
 					<!-- Desktop Menu -->
 					<div class="hidden md:block">

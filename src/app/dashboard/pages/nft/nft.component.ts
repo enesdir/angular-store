@@ -8,12 +8,12 @@ import { nftData } from '@/dashboard/mocks/nftData';
 import { Nft } from '@/dashboard/models/nft';
 
 @Component({
-	selector: 'dash-nft',
+	selector: 'dash-nft-page',
 	templateUrl: './nft.component.html',
 	standalone: true,
 	imports: [NftHeaderComponent, NftDualCardComponent, NftSingleCardComponent, NftAuctionsTableComponent],
 })
-export default class NftComponent {
+export default class NftPageComponent {
 	nft: Array<Nft>;
 
 	constructor() {

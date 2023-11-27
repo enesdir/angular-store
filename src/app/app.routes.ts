@@ -38,7 +38,7 @@ export const routes: Routes = [
 		path: 'dashboard',
 		loadComponent: () => import('./dashboard/dashboard.component'),
 		children: [
-			{ path: '', redirectTo: 'products', pathMatch: 'full' },
+			{ path: '', loadComponent: () => import('./dashboard/pages/home/home.component') },
 			{ path: 'products', loadComponent: () => import('./dashboard/pages/products/products.component') },
 			{ path: 'nft', loadComponent: () => import('./dashboard/pages/nft/nft.component') },
 			{ path: 'podcast', loadComponent: () => import('./dashboard/pages/podcast/podcast.component') },

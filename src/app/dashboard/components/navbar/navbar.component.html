@@ -16,10 +16,12 @@
 
 			<!-- Logo -->
 			<div class="flex items-center justify-start sm:order-2 md:mr-10 lg:hidden">
-				<a class="flex items-center justify-center rounded bg-primary-500 p-2 focus:outline-none focus:ring-1">
+				<a
+					class="flex cursor-pointer items-center justify-center rounded p-2 focus:outline-none"
+					[routerLink]="['/dashboard']">
 					<app-logo />
-				</a>
-				<b class="hidden pl-3 text-sm font-bold dark:text-night-50 sm:block"> Angular Store </b>
+					<b class="hidden pl-3 text-sm font-bold dark:text-night-50 sm:block"> Angular Store </b></a
+				>
 			</div>
 
 			<!-- Desktop Menu -->

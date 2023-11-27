@@ -10,7 +10,7 @@ import { podcastCardData } from '@/dashboard/mocks/podcastCardData';
 import { PodcastCard } from '@/dashboard/models/podcastCard';
 
 @Component({
-	selector: 'dash-podcast',
+	selector: 'dash-podcast-page',
 	templateUrl: './podcast.component.html',
 	standalone: true,
 	imports: [
@@ -22,7 +22,7 @@ import { PodcastCard } from '@/dashboard/models/podcastCard';
 		PodcastCardItemComponent,
 	],
 })
-export default class PodcastComponent {
+export default class PodcastPageComponent {
 	listening: PodcastCard[];
 
 	constructor() {

@@ -10,8 +10,10 @@ export const dashboardMenu: MenuItem[] = [
 				label: 'Dashboard',
 				route: '/dashboard',
 				children: [
-					{ label: 'Products', route: '' },
+					{ label: 'Products', route: '/dashboard/products' },
 					{ label: 'Dashboard', route: '/dashboard/' },
+					{ label: 'NFT', route: '/dashboard/nft' },
+					{ label: 'Podcast', route: '/dashboard/podcast' },
 				],
 			},
 			{
@@ -35,17 +37,17 @@ export const dashboardMenu: MenuItem[] = [
 			{
 				icon: 'heroArrowDownTray',
 				label: 'Download',
-				route: '/download',
+				route: '/dashboard/download',
 			},
 			{
 				icon: 'heroGift',
 				label: 'Gift Card',
-				route: '/gift',
+				route: '/dashboard/gift',
 			},
 			{
 				icon: 'heroUsers',
 				label: 'Users',
-				route: '/users',
+				route: '/dashboard/users',
 			},
 		],
 	},
@@ -56,21 +58,21 @@ export const dashboardMenu: MenuItem[] = [
 			{
 				icon: 'heroCog',
 				label: 'Settings',
-				route: '/settings',
+				route: '/dashboard/settings',
 			},
 			{
 				icon: 'heroBell',
 				label: 'Notifications',
-				route: '/gift',
+				route: '/dashboard/gift',
 			},
 			{
 				icon: 'heroFolder',
 				label: 'Folders',
-				route: '/folders',
+				route: '/dashboard/folders',
 				children: [
-					{ label: 'Current Files', route: '/folders/current-files' },
-					{ label: 'Downloads', route: '/folders/download' },
-					{ label: 'Trash', route: '/folders/trash' },
+					{ label: 'Current Files', route: '/dashboard/folders/current-files' },
+					{ label: 'Downloads', route: '/dashboard/folders/download' },
+					{ label: 'Trash', route: '/dashboard/folders/trash' },
 				],
 			},
 		],

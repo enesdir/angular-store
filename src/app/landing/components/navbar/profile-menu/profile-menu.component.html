@@ -30,9 +30,9 @@
 		class="absolute right-0 z-10 mt-2 w-60 origin-top-right transform rounded-md bg-white py-2 shadow-custom ring-1 ring-transparent ring-opacity-5 transition focus:outline-none dark:bg-gray-600">
 		<ul class="mx-4 my-2" *ngFor="let link of userData.links">
 			<li
-				routerLink="{{ link.href }}"
+				routerLink="{{ link.route }}"
 				class="block cursor-pointer rounded-md px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 hover:text-primary-500 dark:text-gray-200 dark:hover:bg-gray-500 dark:hover:text-primary-500">
-				{{ link.title }}
+				{{ link.label }}
 			</li>
 		</ul>
 	</div>

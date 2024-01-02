@@ -8,4 +8,18 @@ on:
 
 jobs:
   update-license:
-    uses: enesdir/workflows/.github/workflows/update-license.yml@main
+    runs-on: ubuntu-latest
+    steps:
+      # Check out the repository
+      - uses: actions/checkout@v4
+      # Update the license file
+      - name: Update License
+        run: |
+          year=$(date +%Y)
+          sed -i "s/Copyright (c) [0-9]\{4\}/Copyright (c) $year/" LICENSE
+      # Commit and push the changes
+      - name: Commit and push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Update license to current year'
+          push: true

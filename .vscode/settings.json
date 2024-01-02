@@ -1,3 +1,79 @@
 {
-	"typescript.tsdk": "node_modules\\typescript\\lib"
+	// update on import files
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"typescript.preferences.importModuleSpecifier": "relative",
+	"typescript.tsdk": "./node_modules/typescript/lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+	"typescript.suggest.completeFunctionCalls": true,
+	"typescript.surveys.enabled": false,
+	// auto format code
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.quickSuggestions": {
+		"strings": true
+	},
+	"editor.tabSize": 2,
+	"editor.detectIndentation": true,
+	"editor.formatOnPaste": true,
+	"editor.formatOnType": true,
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit",
+		"source.fixAll.tslint": "explicit",
+		"source.fixAll.stylelint": "explicit",
+		"source.organizeImports": "explicit"
+	},
+	"workbench.editor.labelFormat": "short",
+	// Standard settings
+	"npm.autoDetect": "on",
+	"eslint.onIgnoredFiles": "off",
+	"javascript.validate.enable": false,
+	"typescript.validate.enable": true,
+	"html.format.indentHandlebars": true,
+	"html.format.indentInnerHtml": true,
+	"html.format.templating": true,
+	// prettier settings
+	"prettier.requireConfig": true,
+	// "prettier.prettierPath": "./node_modules/prettier",
+	// doc formatters
+	"[shellscript]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"eslint.lintTask.enable": true,
+	"eslint.format.enable": true,
+	"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+	// Markdownlint settings
+	"markdownlint.ignore": ["CHANGELOG.md", "LICENSE.md"],
+	// git validation
+	"git.inputValidationLength": 1000,
+	"git.inputValidationSubjectLength": 100,
+	// Configure glob patterns for excluding files and folders.
+	// For example, the files explorer decides which files and folders to show
+	// or hide based on this setting.
+	// Read more about glob patterns [here](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options).
+	"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true
+	},
+	// Configure glob patterns for excluding files and folders in searches.
+	// Inherits all glob patterns from the `files.exclude` setting.
+	// Read more about glob patterns [here](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options).
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/package-lock.json": true
+	},
+	// Configure glob patterns of file paths to exclude from file watching.
+	// Patterns must match on absolute paths
+	// (i.e. prefix with ** or the full path to match properly).
+	// Changing this setting requires a restart.
+	// When you experience Code consuming lots of cpu time on startup,
+	// you can exclude large folders to reduce the initial load.
+	"files.watcherExclude": {
+		"**/.git/objects/**": true,
+		"**/.git/subtree-cache/**": true,
+		"**/node_modules/*/**": true
+	}
 }

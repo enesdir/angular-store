@@ -34,26 +34,24 @@ This repository contains a store app for an Angular web application with Tailwin
 
 ### Dependencies
 
-| Package                                    | Description                                                                                                |
-| ------------------------------------------ | :--------------------------------------------------------------------------------------------------------- |
-| [Angular][Angular-url]                     | A platform and framework for building single-page client applications using HTML and TypeScript.           |
-| [angular-svg-icon][angular-svg-icon-url]   | Provides a means to inline SVG files to allow for them to be easily styled by CSS and code.                |
-| [apexcharts][apexcharts-url]               | Modern & Interactive Open-source Charts                                                                    |
-| [ng-apexcharts][ng-apexcharts-url]         | Angular wrapper for ApexCharts to build interactive visualizations in Angular.                             |
+| Package                  | Description                                                                                      |
+| ------------------------ | :----------------------------------------------------------------------------------------------- |
+| [Angular][Angular-url]   | A platform and framework for building single-page client applications using HTML and TypeScript. |
+| [ng-icons][ng-icons-url] | The all-in-one icon library for Angular                                                          |
 
 ### Dev Dependencies
 
-| Package                                                         | Description                                                                                     |
-| --------------------------------------------------------------- | :---------------------------------------------------------------------------------------------- |
-| [Typescript][TS-url]                                            | TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.                 |
-| [Husky][Husky-url]                                              | Git hook management                                                                             |
-| [Conventional Commit][Conventional-Commit-url]                  | A specification for adding human and machine readable meaning to commit messages.               |
-| [Commitlint][Commitlint-url]                                    | Lint commit messages                                                                            |
-| [ESLint][ESLint-url]                                            | A tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.           |
-| [Prettier][Prettier-url]                                        | An opinionated code formatter                                                                   |
-| [prettier-plugin-tailwindcss][Prettier-Plugin-TailwindCSS-url]  | A Prettier plugin for Tailwind CSS that automatically sorts classes based on recommended order  |
-| [TailwindCSS][Tailwind-url]                                     | A utility-first CSS framework for rapidly building custom user interfaces.                      |
-| [tailwind-scrollbar][Tailwind-Scrollbar-url]                    | Tailwind plugin for styling scrollbars.                                                         |
+| Package                                                        | Description                                                                                    |
+| -------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- |
+| [Typescript][TS-url]                                           | TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.                |
+| [Husky][Husky-url]                                             | Git hook management                                                                            |
+| [Conventional Commit][Conventional-Commit-url]                 | A specification for adding human and machine readable meaning to commit messages.              |
+| [Commitlint][Commitlint-url]                                   | Lint commit messages                                                                           |
+| [ESLint][ESLint-url]                                           | A tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.          |
+| [Prettier][Prettier-url]                                       | An opinionated code formatter                                                                  |
+| [prettier-plugin-tailwindcss][Prettier-Plugin-TailwindCSS-url] | A Prettier plugin for Tailwind CSS that automatically sorts classes based on recommended order |
+| [TailwindCSS][Tailwind-url]                                    | A utility-first CSS framework for rapidly building custom user interfaces.                     |
+| [tailwind-scrollbar][Tailwind-Scrollbar-url]                   | Tailwind plugin for styling scrollbars.                                                        |
 
 ### Icons and Patterns
 
@@ -93,11 +91,11 @@ npm run start # start development server
 
 ### Commands
 
-| command                   | Description                                 |
-| ------------------------- | :------------------------------------------ |
-| `npm start`               | Starts the server in dev mode               |
-| `npm run lint`            | Runs ESLint on the project                  |
-| `npm run prettier`        | Runs Prettier on entire src folder          |
+| command                   | Description                                   |
+| ------------------------- | :-------------------------------------------- |
+| `npm start`               | Starts the server in dev mode                 |
+| `npm run lint`            | Runs ESLint on the project                    |
+| `npm run prettier`        | Runs Prettier on entire src folder            |
 | `npm run prettier:verify` | Runs Prettier-check and throws error if fails |
 | `npm run prettier:staged` | Runs Prettier on only staged (changed) files  |
 
@@ -113,9 +111,7 @@ This project uses the MIT license. [License](https://github.com/enesdir/angular-
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [Angular-url]: https://angular.dev/
-[angular-svg-icon-url]: https://www.npmjs.com/package/angular-svg-icon
-[apexcharts-url]:https://www.npmjs.com/package/apexcharts
-[ng-apexcharts-url]:https://www.npmjs.com/package/ng-apexcharts
+[ng-icons-url]: https://ng-icons.github.io/ng-icons/
 [TS-url]: https://www.typescriptlang.org/
 [Husky-url]: https://typicode.github.io/husky/
 [Conventional-Commit-url]: https://www.conventionalcommits.org/

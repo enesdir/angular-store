@@ -9,7 +9,6 @@ import { SignGoogleComponent } from '@/auth/components/sign-google/sign-google.c
 @Component({
 	selector: 'app-sign-up',
 	templateUrl: './sign-up.component.html',
-	standalone: true,
 	imports: [FormsModule, RouterLink, NgIconComponent, SignGoogleComponent],
 	viewProviders: [provideIcons({ heroEyeSlash, heroEye })],
 })

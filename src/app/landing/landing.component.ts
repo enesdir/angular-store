@@ -9,7 +9,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 @Component({
 	selector: 'app-landing',
 	templateUrl: './landing.component.html',
-	standalone: true,
 	imports: [NavbarComponent, RouterOutlet, FooterComponent],
 })
 export default class LandingComponent {

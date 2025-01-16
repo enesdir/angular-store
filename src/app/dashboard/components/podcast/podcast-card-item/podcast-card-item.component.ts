@@ -6,7 +6,6 @@ import { heroPlaySolid } from '@ng-icons/heroicons/solid';
 @Component({
 	selector: 'dash-podcast-card-item',
 	templateUrl: './podcast-card-item.component.html',
-	standalone: true,
 	imports: [NgIconComponent, NgOptimizedImage],
 	viewProviders: [
 		provideIcons({

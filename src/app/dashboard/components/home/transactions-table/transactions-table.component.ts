@@ -9,7 +9,6 @@ import { Transaction } from '@/dashboard/models/transaction';
 @Component({
 	selector: 'dash-transactions-table',
 	templateUrl: 'transactions-table.component.html',
-	standalone: true,
 	imports: [CdkTableModule],
 })
 export class TransactionTableComponent {

@@ -4,7 +4,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
 	selector: 'app-chip',
 	templateUrl: './chip.component.html',
-	standalone: true,
 	imports: [NgClass],
 })
 export class ChipComponent {

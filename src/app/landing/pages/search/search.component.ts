@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PaginationComponent } from 'src/app/shared/components/pagination/pagination.component';
@@ -12,15 +11,7 @@ import { LoadingComponent } from '@/shared/components/loading/loading.component'
 @Component({
 	selector: 'app-search-page',
 	templateUrl: './search.component.html',
-	standalone: true,
-	imports: [
-		NgFor,
-		ProductsHeaderComponent,
-		ProductListComponent,
-		PaginationComponent,
-		LoadingComponent,
-		SearchBarComponent,
-	],
+	imports: [ProductsHeaderComponent, ProductListComponent, PaginationComponent, LoadingComponent, SearchBarComponent],
 })
 export default class SearchPageComponent implements OnInit {
 	currentPage: number = 1;

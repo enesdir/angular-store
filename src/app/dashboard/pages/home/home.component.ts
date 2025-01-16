@@ -9,7 +9,6 @@ import { Nft } from '@/dashboard/models/nft';
 @Component({
 	selector: 'dash-home-page',
 	templateUrl: './home.component.html',
-	standalone: true,
 	imports: [HomeHeaderComponent, ProjectTodoComponent, TransactionTableComponent],
 })
 export default class HomePageComponent {

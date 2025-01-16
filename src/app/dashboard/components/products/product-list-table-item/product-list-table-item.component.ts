@@ -9,7 +9,6 @@ import { Product } from '@/landing/models/product';
 	// eslint-disable-next-line @angular-eslint/component-selector
 	selector: '[product-list-table-item]',
 	templateUrl: './product-list-table-item.component.html',
-	standalone: true,
 	imports: [NgIconComponent, NgOptimizedImage, CurrencyPipe, PercentPipe],
 	viewProviders: [
 		provideIcons({

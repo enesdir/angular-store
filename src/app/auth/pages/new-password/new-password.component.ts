@@ -7,7 +7,6 @@ import { heroEye, heroEyeSlash } from '@ng-icons/heroicons/outline';
 @Component({
 	selector: 'app-new-password',
 	templateUrl: './new-password.component.html',
-	standalone: true,
 	imports: [NgIconComponent, FormsModule, RouterLink],
 	viewProviders: [provideIcons({ heroEyeSlash, heroEye })],
 })

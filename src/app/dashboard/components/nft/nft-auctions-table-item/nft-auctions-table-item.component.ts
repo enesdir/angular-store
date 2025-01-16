@@ -9,7 +9,6 @@ import { Nft } from '@/dashboard/models/nft';
 	// eslint-disable-next-line @angular-eslint/component-selector
 	selector: '[nft-auctions-table-item]',
 	templateUrl: './nft-auctions-table-item.component.html',
-	standalone: true,
 	imports: [NgIconComponent, NgOptimizedImage, CurrencyPipe],
 	viewProviders: [
 		provideIcons({

@@ -8,7 +8,6 @@ import { NftAuctionsTableItemComponent } from '../nft-auctions-table-item/nft-au
 @Component({
 	selector: 'dash-nft-auctions-table',
 	templateUrl: './nft-auctions-table.component.html',
-	standalone: true,
 	imports: [NgFor, NftAuctionsTableItemComponent],
 })
 export class NftAuctionsTableComponent {

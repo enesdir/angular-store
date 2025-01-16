@@ -1,5 +1,5 @@
 import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroMinusSmallSolid, heroPlusSmallSolid } from '@ng-icons/heroicons/solid';
@@ -7,8 +7,7 @@ import { heroMinusSmallSolid, heroPlusSmallSolid } from '@ng-icons/heroicons/sol
 @Component({
 	selector: 'app-product-faq',
 	templateUrl: './product-faq.component.html',
-	standalone: true,
-	imports: [CdkAccordionModule, NgIconComponent, NgFor, NgIf],
+	imports: [CdkAccordionModule, NgIconComponent, NgFor],
 	viewProviders: [
 		provideIcons({
 			heroMinusSmallSolid,

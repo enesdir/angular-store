@@ -21,9 +21,7 @@ import { SidebarSubmenuComponent } from '../sidebar-submenu/sidebar-submenu.comp
 @Component({
 	selector: 'dash-sidebar-menu',
 	templateUrl: './sidebar-menu.component.html',
-
 	changeDetection: ChangeDetectionStrategy.OnPush,
-	standalone: true,
 	imports: [
 		NgFor,
 		NgClass,

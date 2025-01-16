@@ -6,9 +6,7 @@ import { heroChevronRightSolid } from '@ng-icons/heroicons/solid';
 @Component({
 	selector: 'app-pagination',
 	templateUrl: './pagination.component.html',
-	standalone: true,
 	imports: [NgClass, NgFor, NgIconComponent],
-
 	viewProviders: [provideIcons({ heroChevronRightSolid })],
 })
 export class PaginationComponent {

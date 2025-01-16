@@ -8,7 +8,6 @@ import { ProductsSortingComponent } from '../products-sorting/products-sorting.c
 @Component({
 	selector: 'dash-product-list-table',
 	templateUrl: 'product-list-table.component.html',
-	standalone: true,
 	imports: [NgFor, ProductListTableItemComponent, ProductsSortingComponent],
 })
 export class ProductListTableComponent {

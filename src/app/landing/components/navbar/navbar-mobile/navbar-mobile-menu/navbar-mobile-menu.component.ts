@@ -21,7 +21,6 @@ import { NavbarMobileSubmenuComponent } from '../navbar-mobile-submenu/navbar-mo
 @Component({
 	selector: 'app-navbar-mobile-menu',
 	templateUrl: './navbar-mobile-menu.component.html',
-	standalone: true,
 	imports: [
 		NgFor,
 		NgClass,

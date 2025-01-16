@@ -1,6 +1,5 @@
-import { CurrencyPipe, NgClass, NgFor, NgIf, NgOptimizedImage } from '@angular/common';
+import { CurrencyPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroShoppingCart, heroTrash } from '@ng-icons/heroicons/outline';
 
@@ -10,8 +9,7 @@ import { ClickOutsideDirective } from '@/shared/directives/click-outside.directi
 @Component({
 	selector: 'app-cart-menu',
 	templateUrl: './cart-menu.component.html',
-	standalone: true,
-	imports: [ClickOutsideDirective, NgClass, RouterLink, NgOptimizedImage, NgFor, NgIconComponent, NgIf, CurrencyPipe],
+	imports: [ClickOutsideDirective, NgClass, NgFor, NgIconComponent, NgIf, CurrencyPipe],
 	viewProviders: [provideIcons({ heroShoppingCart, heroTrash })],
 })
 export class CartMenuComponent {

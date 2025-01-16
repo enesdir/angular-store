@@ -6,7 +6,6 @@ import { Nft } from '@/dashboard/models/nft';
 @Component({
 	selector: 'dash-nft-single-card',
 	templateUrl: './nft-single-card.component.html',
-	standalone: true,
 	imports: [NgOptimizedImage, CurrencyPipe],
 })
 export class NftSingleCardComponent {

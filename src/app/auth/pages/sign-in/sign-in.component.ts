@@ -11,7 +11,6 @@ import { SignGoogleComponent } from '@/auth/components/sign-google/sign-google.c
 	selector: 'app-sign-in',
 	templateUrl: './sign-in.component.html',
 	styleUrls: ['./sign-in.component.scss'],
-	standalone: true,
 	imports: [FormsModule, ReactiveFormsModule, RouterLink, NgClass, NgIf, NgIconComponent, SignGoogleComponent],
 	viewProviders: [provideIcons({ heroEyeSlash, heroEye })],
 })

@@ -8,7 +8,6 @@ import { ResponsiveHelperComponent } from './shared/components/responsive-helper
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	standalone: true,
 	imports: [NgClass, RouterOutlet, ResponsiveHelperComponent],
 })
 export class AppComponent {

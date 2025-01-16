@@ -10,7 +10,6 @@ import { dashboardMenu } from './constants/dashboardMenu';
 @Component({
 	selector: 'app-dashboard',
 	templateUrl: './dashboard.component.html',
-	standalone: true,
 	imports: [SidebarComponent, NavbarComponent, RouterOutlet, FooterComponent],
 })
 export default class DashboardComponent {

@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PaginationComponent } from 'src/app/shared/components/pagination/pagination.component';
@@ -11,8 +10,7 @@ import { LoadingComponent } from '@/shared/components/loading/loading.component'
 @Component({
 	selector: 'app-home-page',
 	templateUrl: './home.component.html',
-	standalone: true,
-	imports: [NgFor, ProductsHeaderComponent, ProductListComponent, PaginationComponent, LoadingComponent],
+	imports: [ProductsHeaderComponent, ProductListComponent, PaginationComponent, LoadingComponent],
 })
 export default class HomePageComponent implements OnInit {
 	currentPage: number = 1;

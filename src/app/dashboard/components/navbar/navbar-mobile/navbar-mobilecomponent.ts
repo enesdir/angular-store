@@ -10,7 +10,6 @@ import { NavbarMobileMenuComponent } from './navbar-mobile-menu/navbar-mobile-me
 @Component({
 	selector: 'dash-navbar-mobile',
 	templateUrl: './navbar-mobile.component.html',
-	standalone: true,
 	imports: [NgClass, NgIconComponent, NavbarMobileMenuComponent, LogoComponent],
 	viewProviders: [provideIcons({ heroXMark })],
 })

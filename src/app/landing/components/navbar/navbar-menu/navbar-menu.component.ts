@@ -8,7 +8,6 @@ import { NavbarSubmenuComponent } from '../navbar-submenu/navbar-submenu.compone
 @Component({
 	selector: 'app-navbar-menu',
 	templateUrl: './navbar-menu.component.html',
-	standalone: true,
 	imports: [NgClass, NgFor, NavbarSubmenuComponent],
 })
 export class NavbarMenuComponent {

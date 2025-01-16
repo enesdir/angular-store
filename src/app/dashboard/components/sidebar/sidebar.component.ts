@@ -20,7 +20,6 @@ import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
 @Component({
 	selector: 'dash-sidebar',
 	templateUrl: './sidebar.component.html',
-	standalone: true,
 	imports: [NgClass, NgIf, SidebarMenuComponent, RouterLink, LogoComponent, NgIconComponent, RouterLink],
 	viewProviders: [
 		provideIcons({

@@ -1,18 +1,17 @@
 import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { tablerArrowBadgeDownFilled } from '@ng-icons/tabler-icons';
+import { tablerArrowBadgeDownFill } from '@ng-icons/tabler-icons/fill';
 
 import { ProductsService } from '@/landing/services/products.service';
 
 @Component({
 	selector: 'dash-products-sorting',
 	templateUrl: './products-sorting.component.html',
-	standalone: true,
 	imports: [NgIconComponent, NgClass],
 	viewProviders: [
 		provideIcons({
-			tablerArrowBadgeDownFilled,
+			tablerArrowBadgeDownFill,
 		}),
 	],
 })

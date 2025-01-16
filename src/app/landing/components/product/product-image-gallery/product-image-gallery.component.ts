@@ -10,7 +10,6 @@ import { GalleryService } from '@/landing/services/gallery.service';
 @Component({
 	selector: 'app-product-image-gallery',
 	templateUrl: './product-image-gallery.component.html',
-	standalone: true,
 	imports: [NgFor, NgClass, NgOptimizedImage, NgIconComponent],
 	viewProviders: [
 		provideIcons({

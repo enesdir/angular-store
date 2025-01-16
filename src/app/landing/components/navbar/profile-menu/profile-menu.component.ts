@@ -9,7 +9,6 @@ import { ClickOutsideDirective } from '@/shared/directives/click-outside.directi
 @Component({
 	selector: 'app-profile-menu',
 	templateUrl: './profile-menu.component.html',
-	standalone: true,
 	imports: [ClickOutsideDirective, NgClass, RouterLink, NgOptimizedImage, NgFor],
 })
 export class ProfileMenuComponent {

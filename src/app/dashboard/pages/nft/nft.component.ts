@@ -10,7 +10,6 @@ import { Nft } from '@/dashboard/models/nft';
 @Component({
 	selector: 'dash-nft-page',
 	templateUrl: './nft.component.html',
-	standalone: true,
 	imports: [NftHeaderComponent, NftDualCardComponent, NftSingleCardComponent, NftAuctionsTableComponent],
 })
 export default class NftPageComponent {

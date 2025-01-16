@@ -8,7 +8,6 @@ import { PodcastListItemComponent } from '../podcast-list-item/podcast-list-item
 @Component({
 	selector: 'dash-podcast-list',
 	templateUrl: './podcast-list.component.html',
-	standalone: true,
 	imports: [NgFor, PodcastListItemComponent],
 })
 export class PodcastListComponent {

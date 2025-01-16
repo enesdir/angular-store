@@ -6,7 +6,6 @@ import { tablerHeadphones } from '@ng-icons/tabler-icons';
 @Component({
 	selector: 'dash-podcast-card-banner',
 	templateUrl: './podcast-card-banner.component.html',
-	standalone: true,
 	imports: [NgIconComponent],
 	viewProviders: [provideIcons({ heroPlaySolid, tablerHeadphones })],
 })

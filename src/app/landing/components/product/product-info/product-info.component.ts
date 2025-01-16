@@ -9,7 +9,6 @@ import { CartService } from '@/landing/services/cart.service';
 @Component({
 	selector: 'app-product-info',
 	templateUrl: './product-info.component.html',
-	standalone: true,
 	imports: [NgIf, CurrencyPipe, PercentPipe, NgClass, NgIconComponent],
 	viewProviders: [
 		provideIcons({

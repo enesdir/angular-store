@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -13,10 +12,7 @@ import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
 @Component({
 	selector: 'dash-navbar',
 	templateUrl: './navbar.component.html',
-	standalone: true,
-
 	imports: [
-		NgClass,
 		NgIconComponent,
 		NavbarMenuComponent,
 		NavbarMobileComponent,

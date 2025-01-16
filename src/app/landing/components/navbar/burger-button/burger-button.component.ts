@@ -8,8 +8,6 @@ import { MenuService } from '@/core/services/menu.service';
 @Component({
 	selector: 'app-burger-button',
 	templateUrl: './burger-button.component.html',
-
-	standalone: true,
 	imports: [NgClass, NgIconComponent],
 	viewProviders: [provideIcons({ heroBars3, heroXMark, heroBell })],
 })

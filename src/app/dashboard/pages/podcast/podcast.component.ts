@@ -12,7 +12,6 @@ import { PodcastCard } from '@/dashboard/models/podcastCard';
 @Component({
 	selector: 'dash-podcast-page',
 	templateUrl: './podcast.component.html',
-	standalone: true,
 	imports: [
 		PodcastHeaderComponent,
 		PodcastCardBannerComponent,

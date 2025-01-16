@@ -12,7 +12,6 @@ import { PaginationComponent } from '@/shared/components/pagination/pagination.c
 @Component({
 	selector: 'dash-products-page',
 	templateUrl: './products.component.html',
-	standalone: true,
 	imports: [
 		ProductsHeaderComponent,
 		ProductListTableComponent,

@@ -6,15 +6,13 @@ import {
 	moveItemInArray,
 	transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 
 /** @title Drag&Drop connected sorting group */
 @Component({
 	selector: 'dash-project-todo',
 	templateUrl: 'project-todo.component.html',
-	standalone: true,
-	imports: [CdkDropListGroup, CdkDropList, CdkDrag, NgFor],
+	imports: [CdkDropListGroup, CdkDropList, CdkDrag],
 })
 export class ProjectTodoComponent {
 	todo: string[] = [

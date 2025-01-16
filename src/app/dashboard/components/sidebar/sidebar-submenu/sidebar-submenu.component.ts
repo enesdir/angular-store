@@ -10,9 +10,7 @@ import { MenuService } from '@/core/services/menu.service';
 @Component({
 	selector: 'dash-sidebar-submenu',
 	templateUrl: './sidebar-submenu.component.html',
-	standalone: true,
 	imports: [NgClass, NgFor, NgTemplateOutlet, RouterLinkActive, RouterLink, NgIconComponent],
-
 	viewProviders: [
 		provideIcons({
 			heroChevronRightSolid,

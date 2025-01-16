@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 @Component({
 	selector: 'app-responsive-helper',
 	templateUrl: './responsive-helper.component.html',
-	standalone: true,
 	imports: [NgIf],
 })
 export class ResponsiveHelperComponent {

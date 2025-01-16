@@ -13,7 +13,6 @@ import { LoadingComponent } from '@/shared/components/loading/loading.component'
 @Component({
 	selector: 'app-product-page',
 	templateUrl: './product.component.html',
-	standalone: true,
 	imports: [ProductImagesComponent, ProductInfoComponent, ProductFAQComponent, NgIf, AsyncPipe, LoadingComponent],
 })
 export default class ProductPageComponent implements OnInit {

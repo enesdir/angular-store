@@ -10,7 +10,6 @@ import { MenuService } from '@/core/services/menu.service';
 @Component({
 	selector: 'app-navbar-mobile-submenu',
 	templateUrl: './navbar-mobile-submenu.component.html',
-	standalone: true,
 	imports: [NgClass, NgFor, NgTemplateOutlet, RouterLinkActive, RouterLink, NgIconComponent],
 	viewProviders: [provideIcons({ heroChevronRightSolid })],
 })

@@ -9,7 +9,6 @@ import { ProductImageGalleryComponent } from '../product-image-gallery/product-i
 @Component({
 	selector: 'app-product-images',
 	templateUrl: './product-images.component.html',
-	standalone: true,
 	imports: [NgFor, NgIf, NgClass, NgOptimizedImage, ProductImageGalleryComponent, NgIconComponent],
 	viewProviders: [
 		provideIcons({

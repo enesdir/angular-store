@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -14,10 +13,7 @@ import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
 @Component({
 	selector: 'app-navbar',
 	templateUrl: './navbar.component.html',
-
-	standalone: true,
 	imports: [
-		NgClass,
 		NavbarMenuComponent,
 		NavbarMobileComponent,
 		LogoComponent,

@@ -15,7 +15,6 @@ import type { Category } from '~/src/app/dashboard/models/category';
 @Component({
 	selector: 'dash-category-filter',
 	templateUrl: './category-filter.component.html',
-	standalone: true,
 	imports: [NgIconComponent, NgIf, NgFor, ChipComponent, AsyncPipe, LoadingComponent, FormsModule],
 	viewProviders: [
 		provideIcons({

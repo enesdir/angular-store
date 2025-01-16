@@ -5,8 +5,8 @@
 	"description": "Angular & Tailwind CSS Starter Kit, Free and Open Source",
 	"private": true,
 	"engines": {
-		"node": ">=22.x.x",
-		"npm": ">=11"
+		"node": ">=22.x",
+		"npm": ">=10.x"
 	},
 	"scripts": {
 		"build": "ng build",
@@ -51,6 +51,7 @@
 		"@angular-eslint/template-parser": "19.0.2",
 		"@angular/cli": "^19.1.1",
 		"@angular/compiler-cli": "^19.1.1",
+		"@angular/localize": "^19.1.1",
 		"@commitlint/cli": "^19.6.1",
 		"@commitlint/config-conventional": "^19.6.0",
 		"@commitlint/prompt-cli": "^19.7.0",

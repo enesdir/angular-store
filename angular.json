@@ -17,8 +17,11 @@
 			"sourceRoot": "src",
 			"prefix": "app",
 			"i18n": {
-				"sourceLocale": "en-US",
-				"locales": { "es": { "translation": "src/locale/messages.es.xlf", "subPath": "" } }
+				"sourceLocale": {
+					"code": "en",
+					"subPath": ""
+				},
+				"locales": { "es": { "translation": "src/locale/messages.es.xlf", "subPath": "es" } }
 			},
 			"architect": {
 				"build": {

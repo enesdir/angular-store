@@ -16,6 +16,7 @@
 			"root": "",
 			"sourceRoot": "src",
 			"prefix": "app",
+			"i18n": { "sourceLocale": "en-US", "locales": { "es": { "translation": "src/locale/messages.es.xlf" } } },
 			"architect": {
 				"build": {
 					"builder": "@angular-devkit/build-angular:application",
@@ -38,7 +39,8 @@
 						"prerender": true,
 						"ssr": {
 							"entry": "server.ts"
-						}
+						},
+						"i18nMissingTranslation": "error"
 					},
 					"configurations": {
 						"production": {

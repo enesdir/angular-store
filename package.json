@@ -9,7 +9,7 @@
 		"npm": ">=10.x"
 	},
 	"scripts": {
-		"build": "ng build",
+		"build": "ng build --localize",
 		"extract": "ng extract-i18n --format=xlf --output-path=src/locale",
 		"lint": "ng lint",
 		"lint:fix": "ng lint --fix",

@@ -10,6 +10,8 @@ import { ProductsService } from '@/landing/services/products.service';
 import { ChipComponent } from '@/shared/components/chip/chip.component';
 import { LoadingComponent } from '@/shared/components/loading/loading.component';
 
+import type { Category } from '~/src/app/dashboard/models/category';
+
 @Component({
 	selector: 'dash-category-filter',
 	templateUrl: './category-filter.component.html',
@@ -22,7 +24,7 @@ import { LoadingComponent } from '@/shared/components/loading/loading.component'
 	],
 })
 export class CategoryFilterComponent implements OnInit {
-	categories$!: Observable<string[]>;
+	categories$!: Observable<Category[]>;
 	constructor(
 		private categoryService: CategoryService,
 		private productsService: ProductsService

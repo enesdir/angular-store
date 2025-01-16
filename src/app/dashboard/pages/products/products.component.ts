@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
@@ -15,7 +14,6 @@ import { PaginationComponent } from '@/shared/components/pagination/pagination.c
 	templateUrl: './products.component.html',
 	standalone: true,
 	imports: [
-		NgFor,
 		ProductsHeaderComponent,
 		ProductListTableComponent,
 		PaginationComponent,

@@ -1,7 +1,11 @@
 <!-- component -->
 <ng-container *ngIf="categories$ | async as categories; else loading">
 	<div class="hidden flex-wrap gap-2 sm:flex">
-		<app-chip [isActive]="category === cat" [text]="cat" (clickEvent)="category = cat" *ngFor="let cat of categories" />
+		<app-chip
+			[isActive]="category === cat.slug"
+			[text]="cat.name"
+			(clickEvent)="category = cat.slug"
+			*ngFor="let cat of categories" />
 		<app-chip [isActive]="category === ''" [text]="'All'" (clickEvent)="category = ''" />
 	</div>
 	<div class="block w-full max-w-full self-center sm:hidden">

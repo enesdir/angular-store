@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 
 import { environment } from '~/src/environments/environment';
 
+import type { Category } from '~/src/app/dashboard/models/category';
+
 @Injectable({
 	providedIn: 'root',
 })
@@ -12,7 +14,7 @@ export class CategoryService {
 
 	constructor(private http: HttpClient) {}
 
-	getCategories(): Observable<string[]> {
-		return this.http.get<string[]>(`${this.baseUrl}/categories`);
+	getCategories(): Observable<Category[]> {
+		return this.http.get<Category[]>(`${this.baseUrl}/categories`);
 	}
 }
